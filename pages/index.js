@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Featured from '../components/Featured'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -10,9 +11,7 @@ export default function Home() {
         <meta name="description" content="Customize and order your favorite snacks!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h3>SNACKS!!!</h3>
-      {/* <Image src='/images/clip-art-snacks-12.jpg' height={300} width={300} alt='logo'/> */}
+    <Featured/>
     </div>
   )
 }
