@@ -17,7 +17,7 @@ const Navbar = () => {
             <li className={styles.listItem}>HomePage</li>
             <li className={styles.listItem}>Products</li>
             <li className={styles.listItem}>Menu</li>
-            <Image src='/images/snack-bar.png' width={200} height={90} alt='logo' className={styles.logo} />
+            <Image src='/images/snacks.png' width={190} height={170} alt='logo' className={styles.logo} />
             <li className={styles.listItem}>Events</li>
             <li className={styles.listItem}>Blog</li>
             <li className={styles.listItem}>Contact</li>
