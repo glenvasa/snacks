@@ -9,7 +9,7 @@ const Navbar = () => {
         </div>
         <div className={styles.texts}>
           <div className={styles.text}>ORDER NOW!</div>
-          <div className={styles.text}>508-559-2681</div>
+          <div className={styles.text}>508-558-2681</div>
         </div>
       </div>
       <div className={styles.item}>
