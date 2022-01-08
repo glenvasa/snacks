@@ -30,7 +30,7 @@ const Order = () => {
               </td>
               <td>
                 <span className={styles.address}>
-                  1145 Montello St., Brockton, MA
+                  1145 Montello St., Brockton, MA, 02301
                 </span>
               </td>
               <td>
