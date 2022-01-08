@@ -28,3 +28,10 @@
     width: 100vw;
     height: 80%;
 }
+
+
+@media screen and (max-width: 480px) {
+    .container{
+      height: 50vh;
+    }
+  }
