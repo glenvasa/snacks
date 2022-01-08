@@ -20,6 +20,7 @@
   .table {
     width: 100%;
     border-spacing: 20px;
+    text-align: left;
   }
   
   .name {
