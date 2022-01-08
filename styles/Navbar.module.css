@@ -6,7 +6,8 @@
   padding: 0px 50px;
   background-color: #d1411e;
   position: sticky;
-  top: 0
+  top: 0;
+  z-index: 999;
 }
 
 .item {
