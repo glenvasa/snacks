@@ -12,7 +12,7 @@ const Footer = () => {
                   <h2 className={styles.motto}>
                       {`BEST PIZZA IN TOWN?`} <br/>
                       {`IT'S SNACKS.`} <br/>
-                      {`JUST FACTS!`}
+                      {`JUST THE FACTS!`}
                   </h2>
               </div>
               <div className={styles.card}>
