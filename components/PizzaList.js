@@ -1,9 +1,14 @@
 import styles from "../styles/PizzaList.module.css";
 import PizzaCard from "./PizzaCard";
+import Image from "next/image";
 
 const PizzaList = () => {
   return (
     <div className={styles.container}>
+      <div className={styles.logo} >
+         <Image src='/images/snacks.png' width={190} height={170} alt='logo' />
+      </div>
+       
       <h1 className={styles.title}>THE BEST PIZZA IN TOWN</h1>
       <p className={styles.desc}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat libero
