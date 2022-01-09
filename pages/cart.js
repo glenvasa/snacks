@@ -1,9 +1,17 @@
-import styles from '../styles/Cart.module.css'
-import Image from 'next/image'
+import styles from "../styles/Cart.module.css";
+import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-    return (
-        <div className={styles.container}>
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state.cart);
+
+  const tax = Number((cart.total * .0625).toFixed(2))
+  const grandTotal = cart.total + tax
+
+  return (
+    <div className={styles.container}>
       <div className={styles.left}>
         <table className={styles.table}>
           <tr className={styles.trTitle}>
@@ -14,11 +22,12 @@ const Cart = () => {
             <th>Quantity</th>
             <th>Total</th>
           </tr>
-          <tr className={styles.tr}>
+          {cart.products.map((product) => (
+            <tr className={styles.tr} key={product._id}>
             <td>
               <div className={styles.imgContainer}>
                 <Image
-                  src="/images/pizza.png"
+                  src={product.img}
                   layout="fill"
                   objectFit="cover"
                   alt=""
@@ -26,71 +35,50 @@ const Cart = () => {
               </div>
             </td>
             <td>
-              <span className={styles.name}>SNACKSARONI</span>
+              <span className={styles.name}>{product.title}</span>
             </td>
-            <td>
-              <span className={styles.extras}>
-                Double toppings, spicy sauce
+            <td className={styles.extrasContainer}>
+              {product.extrasArray.map(extra => (
+          <span key={extra._id} className={styles.extras}>
+               {extra.text}
               </span>
+
+              ))}
+              
             </td>
             <td>
-              <span className={styles.price}>$19.99</span>
+              <span className={styles.price}>${product.totalPrice.toFixed(2)}</span>
             </td>
             <td>
-              <span className={styles.quantity}>2</span>
+              <span className={styles.quantity}>{product.quantity}</span>
             </td>
             <td>
-              <span className={styles.total}>$39.98</span>
+              <span className={styles.total}>${(product.totalPrice * product.quantity).toFixed(2)}</span>
             </td>
           </tr>
-          <tr className={styles.tr}>
-            <td>
-              <div className={styles.imgContainer}>
-                <Image
-                  src="/images/pizza.png"
-                  layout="fill"
-                  objectFit="cover"
-                  alt=""
-                />
-              </div>
-            </td>
-            <td>
-              <span className={styles.name}>SNACKSARONI</span>
-            </td>
-            <td>
-              <span className={styles.extras}>
-                Double toppings, spicy sauce
-              </span>
-            </td>
-            <td>
-              <span className={styles.price}>$19.99</span>
-            </td>
-            <td>
-              <span className={styles.quantity}>2</span>
-            </td>
-            <td>
-              <span className={styles.total}>$39.98</span>
-            </td>
-          </tr>
+
+          ))}
+          
+          
         </table>
       </div>
       <div className={styles.right}>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>CART TOTAL</h2>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Subtotal:</b>$79.96
+            <b className={styles.totalTextTitle}>Subtotal:</b>${cart.total}
           </div>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Discount:</b>$0.00
+            <b className={styles.totalTextTitle}>Tax:</b>${tax}
           </div>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Total:</b>$79.96
+            <b className={styles.totalTextTitle}>Total:</b>${grandTotal}
           </div>
           <button className={styles.button}>CHECKOUT NOW!</button>
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default Cart
+export default Cart;
