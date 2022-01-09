@@ -63,6 +63,13 @@
     border-radius: 10px;
 }
 
+.basePrice {
+  position: absolute;
+  bottom: -20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .ingredients {
     display: flex;
     margin-bottom: 30px;
