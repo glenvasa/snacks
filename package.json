@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^7.5.0",
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
     "mongoose": "^6.1.5",
