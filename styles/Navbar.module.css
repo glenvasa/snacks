@@ -63,7 +63,8 @@
 }
 
 .cart {
-    position: relative
+    position: relative;
+    cursor: pointer
 }
 
 .counter {
