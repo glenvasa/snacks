@@ -29,6 +29,14 @@
     font-size: 18px;
   }
   
+  .extrasContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 25%;
+   
+  }
+
   .total {
     font-weight: 500;
     font-size: 18px;
