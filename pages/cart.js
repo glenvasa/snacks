@@ -55,7 +55,7 @@ const Cart = () => {
           currency: currency,
         },
       });
-    }, [dispatch, options, currency, showSpinner]);
+    }, [currency, showSpinner]);
 
     return (
       <>
@@ -85,14 +85,12 @@ const Cart = () => {
           onApprove={function (data, actions) {
             return actions.order.capture().then(function (details) {
               const shipping = details.purchase_units[0].shipping;
-              console.log(shipping)
               const addressInfo = Object.values(shipping.address)
-              console.log(addressInfo)
+              const email = details.payer.email_address
               createOrder({
                 customer: shipping.name.full_name,
-                address: addressInfo,
+                address: [...addressInfo, email],
                   // shipping.address.address_line_1,
-                
                 total: cart.total,
                 method: 1,
               });
