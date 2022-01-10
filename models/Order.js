@@ -8,9 +8,9 @@ const OrderSchema = new mongoose.Schema(
       maxlength: 60,
     },
     address: {
-      type: String,
+      type: Array,
       required: true,
-      maxlength: 200,
+      maxlength: 500,
     },
     total: {
       type: Number,
