@@ -86,8 +86,8 @@ const handleAddToCart = () => {
         </div>
         <h3 className={styles.additional}>Any extras?</h3>
         <div className={styles.ingredients}>
-          {pizza.extraOptions.map((option) => (
-            <div key={pizza.extraOptions._id} className={styles.option}>
+          {pizza.extraOptions.map((option, index) => (
+            <div key={index} className={styles.option}>
               <input
                 type="checkbox"
                 id={option.text}
