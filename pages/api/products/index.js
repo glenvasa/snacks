@@ -2,7 +2,9 @@ import dbConnect from '../../../util/mongo.js'
 import Product from '../../../models/Product.js'
 
 export default async function handler (req, res) {
-    const { method} = req
+    const { method, cookies} = req
+
+    const token = cookies.token
 
     dbConnect()
 
@@ -16,6 +18,9 @@ export default async function handler (req, res) {
     }
 
     if (method === 'POST') {
+        if(!token || token !== process.env.TOKEN){
+            return res.status(401).json('Not authorized to POST new product')
+        }
         try {
             const product = await Product.create(req.body)
             res.status(201).json({message: 'Product created!', product})
