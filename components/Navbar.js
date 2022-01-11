@@ -20,16 +20,19 @@ const Navbar = () => {
       </div>
       <div className={styles.item}>
           <ul className={styles.list}>
-            <Link href='/'>
+            <Link href='/' passHref>
               <li className={styles.listItem}>HomePage</li>
             </Link>
           
             <li className={styles.listItem}>Products</li>
             <li className={styles.listItem}>Menu</li>
             <Image src='/images/snacks.png' width={190} height={170} alt='logo' className={styles.logo} />
-            <li className={styles.listItem}>Events</li>
             <li className={styles.listItem}>Blog</li>
             <li className={styles.listItem}>Contact</li>
+            <Link href='/admin/login' passHref>
+            <li className={styles.listItem}>Admin</li>
+            </Link>
+            
           </ul>
       </div>
       <Link href='/cart'>
