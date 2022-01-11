@@ -31,7 +31,7 @@ const AddProduct = ({ setClose }) => {
     data.append("upload_preset", "uploads");
     try {
       const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dsbyq4sj1/image/upload",
+        "https://api.cloudinary.com/v1_1/dwpfbzcnl/image/upload",
         data
       );
 
@@ -124,7 +124,7 @@ const AddProduct = ({ setClose }) => {
           </div>
           <div className={styles.extraItems}>
             {extraOptions.map((option, index) => (
-              <span key={option.index} className={styles.extraItem}>
+              <span key={index} className={styles.extraItem}>
                 {option.text}: ${option.price}  
               </span>
             ))}
