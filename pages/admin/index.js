@@ -42,8 +42,6 @@ const Admin = ({ orders, products }) => {
     }
   };
 
- console.log(orderList)
-
   return (
     <div className={styles.container}>
       <div className={styles.item}>
@@ -92,7 +90,7 @@ const Admin = ({ orders, products }) => {
         <table className={styles.table}>
           <tbody>
             <tr className={styles.trTitle}>
-              <th>Id</th>
+              <th>Id (last 5)</th>
               <th>Customer</th>
               <th>Total</th>
               <th>Payment</th>
@@ -103,9 +101,9 @@ const Admin = ({ orders, products }) => {
           {orderList.map((order) => (
             <tbody key={order._id}>
               <tr className={styles.trTitle}>
-                <td>{order._id.slice(0, 5)}...</td>
+                <td>{order._id.slice((order._id.length - 5), order._id.length)}</td>
                 <td>{order.customer}</td>
-                <td>${order.total}</td>
+                <td>${(order.total * 1.0625).toFixed(2)}</td>
                 <td>
                   {order.method === 0 ? <span>cash</span> : <span>paid</span>}
                 </td>
