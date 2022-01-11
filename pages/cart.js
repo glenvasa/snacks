@@ -91,7 +91,7 @@ const Cart = () => {
                 customer: shipping.name.full_name,
                 address: [...addressInfo, email],
                   // shipping.address.address_line_1,
-                total: cart.total,
+                total: ((cart.total * 1.0625).toFixed(2)),
                 method: 1,
               });
             });
