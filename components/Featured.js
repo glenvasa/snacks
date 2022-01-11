@@ -31,8 +31,10 @@ const Featured = () => {
       >
         <Image
           src="/images/arrowl.png"
-          layout="fill"
-          objectFit="contain"
+          // layout="fill"
+          // objectFit="contain"
+          width={100}
+          height={100}
           alt="left-arrow"
         />
       </div>
@@ -47,6 +49,7 @@ const Featured = () => {
           <div className={styles.imgContainer} key={i}>
             <Image
               src={image}
+              priority='true'
               layout="fill"
               objectFit="contain"
               alt="featured-item"
@@ -61,8 +64,10 @@ const Featured = () => {
       >
         <Image
           src="/images/arrowr.png"
-          layout="fill"
-          objectFit="contain"
+          // layout="fill"
+          // objectFit="contain"
+          width={100}
+          height={100}
           alt="right-arrow"
         />
       </div>
