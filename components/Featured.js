@@ -50,8 +50,10 @@ const Featured = () => {
             <Image
               src={image}
               priority='true'
-              layout="fill"
-              objectFit="contain"
+              width={550}
+              height={550}
+              // layout="fill"
+              // objectFit="contain"
               alt="featured-item"
             />
           </div>
