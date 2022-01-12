@@ -17,5 +17,5 @@
 - Customized for use by local nutrion direct sales representatives.
 - Reps previously had to front customer order costs and only receive payment through cash on delivery.
 - Now payment is received through Paypal/credit card upon order placement.
-- Customers now have an easier online order process instead of placing orders to reps by phone, text, or email message.
+- Customers have an easier online order process instead of placing orders to reps by phone, text, or email message.
 - Orders are trackable online and reps can manage featured inventory and change stage of order status on Admin dashboard.  
