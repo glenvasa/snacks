@@ -1,6 +1,7 @@
 # Snacks Pizza
  
-E-Commerce restaurant/food-ordering application built with Next.js, React, Redux, and MongoDB. PayPal API integrated for customer card payments. Customers can order, pay, and track orders from payment through delivery.
+- E-Commerce restaurant/food-ordering application built with Next.js, React, Redux, and MongoDB. 
+- PayPal API integrated for customer card payments. Customers can order, pay, and track orders from payment through delivery.
 
 ## Screenshots
 <img src="public/Screenshot (242).png">  
