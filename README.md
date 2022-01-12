@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Snacks Pizza
+ 
+Fully operational E-Commerce web application built with Next.js, React, Redux, and MongoDB. PayPal API integrated for customer card payments. 
 
-## Getting Started
+## Screenshots
+<img src="public/Screenshot (242).png">  
+<img src="public/Screenshot (245).png">
+ 
+## Customized for Freelance Projects
+- Initially this project was built with JavaScript to fetch all character data from an external API (https://akabab.github.io/superhero-api/).
+- However, due to the unpredicatable nature of using any 3rd party controlled API/data, I decided to develop an Express server with Node.js and load the data from a MongoDb collection I could control.
+- I am now able to avoid potential rejected requests from 3rd party APIs (e.g., for exceeding request quotas, CORS issues, etc.) and make the app more performant by controlling the data. 
 
-First, run the development server:
+## Project Features
+- Display cards for all heroes and villains on main screen.
+- User may search for specific characters in Navbar Search. 
+- User clicks card button to display character modal containing name (red/hero or black/villain), larger image and 5 submodal buttons.
+- The submodals display detailed data relative to character Powerstats, Biography, Appearance, Work and Connections.
+- App incorporates several CSS animations/transitions in Navbar, Main Card View, and Modal View.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## View Deployed Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Project deployed with Vercel.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
