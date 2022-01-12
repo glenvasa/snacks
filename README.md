@@ -13,9 +13,9 @@
 <img src="public/images/screenshots/admin.png">
 
  
-## Customized for Freelance Projects
-- Customized for use by local nutrion direct sales representatives.
+## Customized for Freelance Project
+- Customized for use by nutrion/healthy living direct sales representatives.
 - Reps previously had to front customer order costs and only receive payment through cash on delivery.
 - Now payment is received through Paypal/credit card upon order placement.
-- Customers have an easier online order process instead of placing orders to reps by phone, text, or email message.
+- Customers can now place their orders online instead of the previous method with their rep by phone, text, or email message.
 - Orders are trackable online and reps can manage featured inventory and change stage of order status on Admin dashboard.  
