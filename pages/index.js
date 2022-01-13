@@ -6,10 +6,12 @@ import PizzaList from "../components/PizzaList";
 import AddButton from '../components/AddButton';
 import styles from "../styles/Home.module.css";
 import AddProduct from '../components/AddProduct';
+import {useRouter} from 'next/router';
 
 export default function Home({pizzaList, admin}) {
   const [close, setClose] = useState(true)
 
+  const router = useRouter()
 // client side data fetching if not using Next
 //  const getProducts = async () => {
 //    const products = await fetch('api/products')
@@ -22,8 +24,11 @@ export default function Home({pizzaList, admin}) {
 //     getProducts()
 //     }, [])
 
+
   return (
-    <div className={styles.container}>
+   
+  
+    (<div className={styles.container}>
       <Head>
         <title>SNACKS! - Food Ordering App</title>
         <meta
@@ -32,11 +37,12 @@ export default function Home({pizzaList, admin}) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Featured />
+      {/* <Featured /> */}
       {admin && <AddButton setClose={setClose}/>}
       <PizzaList pizzaList={pizzaList}/>
       {!close && <AddProduct setClose={setClose} />}
-    </div>
+    </div>)
+    
   );
 }
 
