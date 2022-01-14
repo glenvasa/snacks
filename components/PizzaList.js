@@ -9,13 +9,11 @@ const PizzaList = ({ pizzaList }) => {
         <Image src="/images/snacks.png" width={190} height={170} alt="logo" />
       </div>
 
-      <h1 className={styles.title}>THE BEST PIZZA IN TOWN</h1>
+      <h1 className={styles.title} id="pizza-list">THE BEST PIZZA IN TOWN</h1>
       <p className={styles.desc}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat libero
-        atque odio quia doloribus, distinctio quos reiciendis sapiente quod
-        natus facere voluptatem eius quis consequuntur?
+       Try one of our award-winning custom classic pizzas with any one of your favorite toppings! 
       </p>
-      <div className={styles.wrapper} id="pizza-list">
+      <div className={styles.wrapper} >
         {pizzaList.map(pizza => <PizzaCard key={pizza._id} pizza={pizza}/>)};   
       </div>
     </div>
