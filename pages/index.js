@@ -37,7 +37,7 @@ export default function Home({pizzaList, admin}) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Featured /> */}
+      <Featured />
       {admin && <AddButton setClose={setClose}/>}
       <PizzaList pizzaList={pizzaList}/>
       {!close && <AddProduct setClose={setClose} />}
@@ -55,7 +55,7 @@ export async function getServerSideProps(ctx) {
     admin = true
   }
 
-  const res = await axios.get('http://localhost:3000/api/products')
+  const res = await axios.get('http://snacks-psi.vercel.app//api/products')
   
 
   return {
