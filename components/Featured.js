@@ -66,10 +66,10 @@ const Featured = () => {
       >
         <Image
           src="/images/arrowr.png"
-          // layout="fill"
-          // objectFit="contain"
-          width={100}
-          height={100}
+          layout="fill"
+          objectFit="contain"
+          // width={100}
+          // height={100}
           alt="right-arrow"
         />
       </div>
