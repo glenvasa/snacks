@@ -8,7 +8,7 @@ const PizzaCard = ({ pizza }) => {
       <div className={styles.container}>
         <Image src={pizza.img} width={500} height={500} alt="pizza" />
         <h1 className={styles.title}>{pizza.title}</h1>
-        <span className={styles.price}>${pizza.prices[0]}.00</span>
+        {/* <span className={styles.price}>${pizza.prices[0]}.00</span> */}
         <p className={styles.desc}>{pizza.desc}</p>
       </div>
     </Link>
