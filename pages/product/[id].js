@@ -114,7 +114,7 @@ const handleAddToCart = () => {
 
 export async function getServerSideProps({ params }) {
   const res = await axios.get(
-    `http://snacks-psi.vercel.app/api/products/${params.id}`
+    `https://snacks-glenvasa.vercel.app/api/products/${params.id}`
   );
 
   return {
