@@ -4,12 +4,12 @@ import Image from "next/image";
 
 const PizzaList = ({ pizzaList }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="pizza-list">
       <div className={styles.logo}>
         <Image src="/images/snacks.png" width={190} height={170} alt="logo" />
       </div>
 
-      <h1 className={styles.title} id="pizza-list">THE BEST PIZZA IN TOWN</h1>
+      <h1 className={styles.title} >THE BEST PIZZA IN TOWN</h1>
       <p className={styles.desc}>
        Try one of our award-winning custom classic pizzas with any one of your favorite toppings! 
       </p>
