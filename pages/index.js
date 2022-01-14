@@ -55,7 +55,7 @@ export async function getServerSideProps(ctx) {
     admin = true
   }
 
-  const res = await axios.get('http://snacks-psi.vercel.app//api/products')
+  const res = await axios.get('https://snacks-glenvasa.vercel.app/api/products')
   
 
   return {
