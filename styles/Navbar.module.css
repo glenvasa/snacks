@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  background-color: #d1411e;
+  background-color: #18cc81;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -34,7 +34,7 @@
 
 .texts {
     margin-left: 20px;
-    color: white;
+    color: black;
 }
 
 .text:first-child {
@@ -52,13 +52,15 @@
     display: flex;
     align-items: center;
     list-style: none;
-    color: white;
+    color: black;
 }
 
 .listItem {
     margin: 20px;
     margin-right: 30px;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
 }
 
@@ -80,7 +82,7 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: #d1411e
+    color: #05291a
 }
 
 .logo {
