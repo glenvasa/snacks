@@ -63,7 +63,7 @@ const handleAddToCart = () => {
             className={styles.size}
             onClick={() => setBasePrice(pizza.prices[0])}
           >
-            <Image src="/images/plain-pizza.jfif " alt="size" layout="fill" />
+            <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Small</span>
            <span className={styles.basePrice}>${pizza.prices[0].toFixed(2)}</span> 
           </div>
@@ -71,7 +71,7 @@ const handleAddToCart = () => {
             className={styles.size}
             onClick={() => setBasePrice(pizza.prices[1])}
           >
-            <Image src="/images/plain-pizza.jfif " alt="size" layout="fill" />
+            <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Medium</span>
             <span className={styles.basePrice}>${pizza.prices[1].toFixed(2)}</span> 
           </div>
@@ -79,7 +79,7 @@ const handleAddToCart = () => {
             className={styles.size}
             onClick={() => setBasePrice(pizza.prices[2])}
           >
-            <Image src="/images/plain-pizza.jfif " alt="size" layout="fill" />
+            <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Large</span>
             <span className={styles.basePrice}>${pizza.prices[2].toFixed(2)}</span> 
           </div>
