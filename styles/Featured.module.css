@@ -1,8 +1,8 @@
 .container {
-    background-color: #d1411e;
+    background-color: #05291a;
     height: calc(100vh - 100px);
     overflow: hidden;
-
+    
 }
 
 .arrowContainer {
@@ -19,7 +19,7 @@
 .wrapper {
     width: 300vw;
     height: 100%;
-    margin-top: 2%;
+    margin-top: 3%;
     display: flex;
     transition: all 1.3s ease-in-out ;
 }
