@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.item}>
         <div className={styles.callButton}>
-          <Image src="/images/telephone.png" width={32} height={32} alt='phone' />
+          <Image src="/images/phone.png" width={32} height={32} alt='phone' />
         </div>
         <div className={styles.texts}>
           <div className={styles.text}>ORDER NOW!</div>
@@ -37,7 +37,7 @@ const Navbar = () => {
             
           </ul>
       </div>
-      <Link href='/cart'>
+      <Link href='/cart' passHref>
       <div className={styles.item}>
           <div className={styles.cart}>
           <Image src='/images/cart.png' width={30} height={30} alt='logo' />
