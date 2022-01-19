@@ -24,4 +24,3 @@
 ## Deployed Application
 
 - https://snacks-glenvasa.vercel.app/
-- (Admin Page username: admin / password: snacksadmin22# to test)
