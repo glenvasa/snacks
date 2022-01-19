@@ -20,3 +20,8 @@
 - Payment is now received through Paypal/credit card upon order placement.
 - Customers can place orders online instead of previous method (with their rep by phone, text, or email message).
 - Orders are trackable online and reps can manage featured inventory and change stage of order status on Admin dashboard.  
+
+## Deployed Application
+
+- https://snacks-glenvasa.vercel.app/
+- (Admin Page username: admin / password: snacksadmin22# to test)
