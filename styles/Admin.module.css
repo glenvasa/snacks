@@ -1,5 +1,5 @@
 .container {
-    padding: 50px;
+    padding: 10px 50px;
     display: flex;
   }
   
@@ -27,4 +27,44 @@
   
   .button:last-child {
     background-color: crimson;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .titleContainer {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .extras {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prices {
+    justify-content:space-between;
+    /* display: flex; 
+    flex-direction: column-reverse;  */
+  }
+
+  .updatePageLink {
+    background-color: #18cc81;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px black solid;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold
+  }
+
+  .updatePageLink:hover {
+    background-color: black;
+    color: #18cc81;
+    border-color: #18cc81;
+    transition: all .3s ease-in-out;
   }
