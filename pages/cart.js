@@ -33,7 +33,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post(`${url}}/api/orders`, data);
+      const res = await axios.post(`${url}/api/orders`, data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);
@@ -93,7 +93,7 @@ const Cart = () => {
                 customer: shipping.name.full_name,
                 address: [...addressInfo, email],
                   // shipping.address.address_line_1,
-                total: ((cart.total * 1.0625).toFixed(2)),
+                total: cart.total,
                 method: 1,
               });
             });
@@ -168,7 +168,7 @@ const Cart = () => {
             <b className={styles.totalTextTitle}>Sales Tax:</b>${tax}
           </div>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Order Total:</b>${grandTotal}
+            <b className={styles.totalTextTitle}>Order Total:</b>${grandTotal.toFixed(2)}
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
