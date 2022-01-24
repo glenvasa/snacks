@@ -13,6 +13,8 @@ const Product = ({ pizza }) => {
   const [totalPrice, setTotalPrice] = useState(pizza.prices[0]);
   const [quantity, setQuantity] = useState(1)
 
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
 const dispatch = useDispatch()
 
 const handleAddToCart = () => {
@@ -113,8 +115,9 @@ const handleAddToCart = () => {
 };
 
 export async function getServerSideProps({ params }) {
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const res = await axios.get(
-    `https://snacks-glenvasa.vercel.app/api/products/${params.id}`
+    `${url}/api/products/${params.id}`
   );
 
   return {
