@@ -3,9 +3,9 @@ import axios from 'axios'
 import Head from "next/head";
 import Featured from "../components/Featured";
 import PizzaList from "../components/PizzaList";
-import AddButton from '../components/AddButton';
+// import AddButton from '../components/AddButton';
 import styles from "../styles/Home.module.css";
-import AddProduct from '../components/AddProduct';
+// import AddProduct from '../components/AddProduct';
 import {useRouter} from 'next/router';
 
 export default function Home({pizzaList, admin}) {
@@ -41,16 +41,16 @@ export default function Home({pizzaList, admin}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
-      {admin && <AddButton setClose={setClose}/>}
+      {/* {admin && <AddButton setClose={setClose}/>} */}
       <PizzaList pizzaList={pizzaList}/>
-      {!close && <AddProduct setClose={setClose} />}
+      {/* {!close && <AddProduct setClose={setClose} />} */}
     </div>)
     
   );
 }
 
 export async function getServerSideProps(ctx) {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const myCookie = ctx.req?.cookies || ''
   let admin = false
 
