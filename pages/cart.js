@@ -16,6 +16,8 @@ const Cart = () => {
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
 
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
   const currency = "USD";
   const style = { layout: "vertical" };
 
@@ -31,7 +33,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("https://snacks-glenvasa.vercel.app/api/orders", data);
+      const res = await axios.post(`${url}}/api/orders`, data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);
