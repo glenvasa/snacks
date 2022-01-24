@@ -45,11 +45,7 @@
     flex-direction: column;
   }
 
-  .prices {
-    justify-content:space-between;
-    /* display: flex; 
-    flex-direction: column-reverse;  */
-  }
+  
 
   .updatePageLink {
     background-color: #18cc81;
