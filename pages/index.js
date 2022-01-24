@@ -9,9 +9,9 @@ import styles from "../styles/Home.module.css";
 import {useRouter} from 'next/router';
 
 export default function Home({pizzaList, admin}) {
-  const [close, setClose] = useState(true)
+  // const [close, setClose] = useState(true)
 
-  const router = useRouter()
+  // const router = useRouter()
 
   const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
 
