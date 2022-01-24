@@ -68,6 +68,12 @@
   border-radius: 5px;
 }
 
+.clearButton {
+  margin-top: 10px;
+  margin-bottom: -100px;
+  background-color: #18cc81;
+}
+
 @media screen and (max-width: 480px) {
   .container {
     flex-direction: column;
@@ -128,7 +134,7 @@
 }
 
 .paymentMethods {
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
