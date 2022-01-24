@@ -10,15 +10,29 @@
   z-index: 999;
 }
 
-.item {
+.item_logo {
+    
+    display: flex;
+}
+
+.item_list {
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+
+/* .item {
     flex: 1;
     display: flex;
     align-items: center
-}
+} */
 
-.item:nth-child(2){
+/* .item:nth-child(2){
     flex: 3;
-}
+} */
 
 .item:last-child{
     justify-content: flex-end;
@@ -50,6 +64,7 @@
 .list {
     padding: 0;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     list-style: none;
     color: black;
