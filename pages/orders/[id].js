@@ -129,6 +129,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const res = await axios.get(`${url}/api/orders/${params.id}`);
   return {
     props: { order: res.data },
