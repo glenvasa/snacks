@@ -8,6 +8,7 @@ import styles from "../../styles/Admin.module.css";
 
 const AdminUpdate = ({ products }) => {
   const [pizzaList, setPizzaList] = useState(products);
+const [close, setClose] = useState(true)
 
   const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app";
   const handleDelete = async (id) => {
@@ -27,7 +28,9 @@ const AdminUpdate = ({ products }) => {
         <h1 className={styles.title}>Admin Page: Products</h1>
         <Link href='/admin' passHref>
         <button className={styles.updatePageLink}>Orders Page</button>
-        </Link>
+       
+        </Link> 
+        <AddButton setClose={setClose}/>
         </div>
         <table className={styles.table}>
           <tbody>
@@ -79,6 +82,7 @@ const AdminUpdate = ({ products }) => {
           ))}
         </table>
       </div>
+       {!close && <AddProduct setClose={setClose} />}
     </div>
   );
 };
