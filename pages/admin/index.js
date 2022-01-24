@@ -8,11 +8,13 @@ const Admin = ({ orders, products }) => {
   const [orderList, setOrderList] = useState(orders);
   const status = ["preparing", "on the way", "delivered"];
 
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
   const handleDelete = async (id) => {
     console.log(id);
     try {
       const res = await axios.delete(
-        "https://snacks-glenvasa.vercel.app/api/products/" + id
+        `${url}/api/products/` + id
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
@@ -30,7 +32,7 @@ const Admin = ({ orders, products }) => {
     }
 
     try {
-      const res = await axios.put("https://snacks-glenvasa.vercel.app/api/orders/" + id, {
+      const res = await axios.put(`${url}/api/orders/` + id, {
         status: currentStatus + 1,
       });
       setOrderList([
@@ -123,6 +125,7 @@ const Admin = ({ orders, products }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const myCookie = ctx.req?.cookies || "";
 
   if (myCookie.token !== process.env.TOKEN) {
@@ -134,8 +137,8 @@ export const getServerSideProps = async (ctx) => {
     };
   }
 
-  const productRes = await axios.get("https://snacks-glenvasa.vercel.app/api/products");
-  const orderRes = await axios.get("https://snacks-glenvasa.vercel.app/api/orders");
+  const productRes = await axios.get(`${url}/api/products`);
+  const orderRes = await axios.get(`${url}/api/orders`);
   console.log(orderRes.data);
   return {
     props: {
