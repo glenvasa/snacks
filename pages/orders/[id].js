@@ -3,6 +3,7 @@ import Image from "next/image";
 import axios from "axios";
 
 const Order = ({ order }) => {
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const status = order.status;
 
   const statusClass = (index) => {
@@ -11,7 +12,7 @@ const Order = ({ order }) => {
     if (index - status > 1) return styles.undone;
   };
 
-  console.log(order);
+  
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -128,7 +129,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`https://snacks-glenvasa.vercel.app/api/orders/${params.id}`);
+  const res = await axios.get(`${url}/api/orders/${params.id}`);
   return {
     props: { order: res.data },
   };
