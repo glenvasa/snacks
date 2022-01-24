@@ -23,7 +23,7 @@ const AddProduct = ({ setClose }) => {
     setExtra({ ...extra, [e.target.name]: e.target.value });
   };
 
-  const handleExtra = (e) => {
+  const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
   };
 
