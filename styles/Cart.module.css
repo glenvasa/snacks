@@ -32,8 +32,9 @@
 .extrasContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-top: 15%;
+  align-items:flex-start;
+  
+  padding-top: 22%;
 }
 
 .total {
