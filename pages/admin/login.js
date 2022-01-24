@@ -10,9 +10,11 @@ const Login = () => {
   
   const router = useRouter();
 
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
   const handleClick = async () => {
     try {
-      await axios.post("https://snacks-glenvasa.vercel.app/api/login", {
+      await axios.post(`${url}/api/login`, {
         username,
         password,
       });
