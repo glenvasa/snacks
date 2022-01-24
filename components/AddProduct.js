@@ -11,6 +11,8 @@ const AddProduct = ({ setClose }) => {
   const [extraOptions, setExtraOptions] = useState([]);
   const [extra, setExtra] = useState(null);
 
+  const hostUrl = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
   const changePrice = (e, index) => {
     const currentPrices = prices;
     currentPrices[index] = e.target.value;
@@ -44,7 +46,7 @@ const AddProduct = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post("https://snacks-glenvasa.vercel.app/api/products", newProduct);
+      await axios.post(`${hostUrl}/api/products`, newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);
