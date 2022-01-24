@@ -103,6 +103,12 @@
     cursor: pointer;
 }
 
+.addMessage {
+  padding: 10px 0;
+  font-weight: 500;
+  color: #d1411e;
+}
+
 @media screen and (max-width: 480px) {
     .container {
       height: auto;
