@@ -14,7 +14,7 @@ const Navbar = () => {
           <Image src="/images/phone.png" width={32} height={32} alt='phone' />
         </div>
         <div className={styles.texts}>
-          <div className={styles.text}>ORDER NOW!</div>
+          <div className={styles.text}>ORDER ONLINE OR CALL</div>
           <div className={styles.text}>508-558-2681</div>
         </div>
       </div>
