@@ -170,6 +170,13 @@ const Cart = () => {
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Order Total:</b>${grandTotal.toFixed(2)}
           </div>
+          <div>
+ <button className={styles.clearButton} onClick={() => dispatch(reset())}>
+            Clear Cart
+          </button>
+
+          </div>
+         
           {open ? (
             <div className={styles.paymentMethods}>
               <button
