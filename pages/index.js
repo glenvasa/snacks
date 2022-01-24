@@ -12,6 +12,9 @@ export default function Home({pizzaList, admin}) {
   const [close, setClose] = useState(true)
 
   const router = useRouter()
+
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+
 // client side data fetching if not using Next
 //  const getProducts = async () => {
 //    const products = await fetch('api/products')
@@ -47,7 +50,7 @@ export default function Home({pizzaList, admin}) {
 }
 
 export async function getServerSideProps(ctx) {
-
+  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const myCookie = ctx.req?.cookies || ''
   let admin = false
 
@@ -55,7 +58,7 @@ export async function getServerSideProps(ctx) {
     admin = true
   }
 
-  const res = await axios.get('https://snacks-glenvasa.vercel.app/api/products')
+  const res = await axios.get(`${url}/api/products`)
   
 
   return {
