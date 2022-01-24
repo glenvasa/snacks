@@ -4,7 +4,7 @@ import styles from "../../styles/Product.module.css";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addProduct} from '../../redux/cartSlice'
-import Link from 'next/link'
+
 
 const Product = ({ pizza }) => {
   const [basePrice, setBasePrice] = useState(pizza.prices[0]);
@@ -12,6 +12,7 @@ const Product = ({ pizza }) => {
   const [extrasArray, setExtrasArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(pizza.prices[0]);
   const [quantity, setQuantity] = useState(1)
+  const [addToCart, setAddToCart] = useState(false)
 
   const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
 
@@ -19,6 +20,10 @@ const dispatch = useDispatch()
 
 const handleAddToCart = () => {
     dispatch(addProduct({...pizza, extrasArray, totalPrice, quantity}))
+    setAddToCart(true)
+    setTimeout(() => {
+      setAddToCart(false)
+    }, 1000)
   }
 
 
@@ -109,6 +114,9 @@ const handleAddToCart = () => {
           />
           <button className={styles.button} onClick={handleAddToCart}>Add to Cart</button>
         </div>
+        {addToCart && (
+          <div className={styles.addMessage}>Added to Cart</div>
+        )}
       </div>
     </div>
   );
