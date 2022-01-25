@@ -13,7 +13,7 @@ const AdminUpdate = ({ products }) => {
   const [editClose, setEditClose] = useState(true);
   const [editProduct, setEditProduct] = useState(null);
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app";
+  const url = process.env.URL
 
   const handleDelete = async (id) => {
     try {
@@ -111,7 +111,7 @@ const AdminUpdate = ({ products }) => {
 export default AdminUpdate;
 
 export const getServerSideProps = async (ctx) => {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app";
+  const url = process.env.URL
   const myCookie = ctx.req?.cookies || "";
 
   if (myCookie.token !== process.env.TOKEN) {
