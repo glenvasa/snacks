@@ -23,4 +23,6 @@
 
 ## Deployed Application
 
-- https://snacks-glenvasa.vercel.app/
+- https://snacks-psi.vercel.app/ 
+- For testing use "admin"/"admin" for Admin page username/password
+- Create a test cash order or use PayPal sandbox email/username and follow order on Order Tracking page.
