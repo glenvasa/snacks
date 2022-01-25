@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
-import { useRouter } from "next/router";
+
 
 const AddProduct = ({ setClose }) => {
   const [file, setFile] = useState(null);
@@ -11,7 +11,7 @@ const AddProduct = ({ setClose }) => {
   const [extraOptions, setExtraOptions] = useState([]);
   const [extra, setExtra] = useState(null);
 
-  const hostUrl = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const hostUrl =  process.env.URL
 
   const changePrice = (e, index) => {
     const currentPrices = prices;
@@ -46,7 +46,7 @@ const AddProduct = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post(`${hostUrl}/api/products`, newProduct);
+      await axios.post(`/api/products`, newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);
