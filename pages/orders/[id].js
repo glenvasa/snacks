@@ -40,6 +40,7 @@ const Order = ({ order }) => {
                 ${order.address[2]},
                 ${order.address[3]}`}
                 </td>
+                {/* add list of pizzas ordered, extras on each, qty of each pizza */}
                 <td>
                   <span className={styles.total}>
                     ${(order.total * 1.0625).toFixed(2)}
@@ -119,8 +120,9 @@ const Order = ({ order }) => {
             <b className={styles.totalTextTitle}>Order Total:</b>$
             {(order.total * 1.0625).toFixed(2)}
           </div>
+          {/* button should say Cash on Delivery if cash order */}
           <button disabled className={styles.button}>
-            PAID
+            PAID 
           </button>
         </div>
       </div>
