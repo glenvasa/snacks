@@ -16,7 +16,7 @@ const Track = () => {
   const handleClick = async () => {
     console.log(typeof(name))
     try {
-      const res = await axios.post(`${url}/api/track`, {
+      const res = await axios.post(`/api/track`, {
         firstName,
         lastName,
         zipCode
