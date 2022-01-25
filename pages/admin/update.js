@@ -17,7 +17,7 @@ const AdminUpdate = ({ products }) => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`${url}/api/products/` + id);
+      const res = await axios.delete(`/api/products/` + id);
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
       console.log(err.message || "Something went wrong");
@@ -25,7 +25,7 @@ const AdminUpdate = ({ products }) => {
   };
 
   const handleEditButton = async (id) => {
-    const res = await axios.get(`${url}/api/products/${id}`);
+    const res = await axios.get(`/api/products/${id}`);
 
     setEditProduct(res.data);
     setEditClose(false);
