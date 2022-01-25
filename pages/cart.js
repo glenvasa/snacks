@@ -16,7 +16,7 @@ const Cart = () => {
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
 
   const currency = "USD";
   const style = { layout: "vertical" };
