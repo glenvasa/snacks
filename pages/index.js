@@ -13,7 +13,7 @@ export default function Home({pizzaList, admin}) {
 
   // const router = useRouter()
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  // const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
 
 // client side data fetching if not using Next
 //  const getProducts = async () => {
@@ -50,7 +50,7 @@ export default function Home({pizzaList, admin}) {
 }
 
 export async function getServerSideProps(ctx) {
-const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+const url = "https://snacks-glenvasa.vercel.app"
   const myCookie = ctx.req?.cookies || ''
   let admin = false
   let res
