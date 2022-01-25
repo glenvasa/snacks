@@ -12,6 +12,15 @@ const OrderSchema = new mongoose.Schema(
       required: true,
       maxlength: 500,
     },
+    products: {
+      type: Array,
+      required: true,
+      maxlength: 500,
+    },
+    cart_qty: {
+      type: Number,
+      required: true,
+    },
     total: {
       type: Number,
       required: true,
@@ -22,7 +31,7 @@ const OrderSchema = new mongoose.Schema(
     },
     method: {
       type: Number,
-      required:true
+      required: true,
     },
   },
   { timestamps: true }
