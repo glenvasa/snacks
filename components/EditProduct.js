@@ -12,7 +12,7 @@ const EditProduct = ({ setEditClose, product }) => {
   const [extra, setExtra] = useState(null);
   const [editMessage, setEditMessage] = useState(false)
 
-  const hostUrl = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const hostUrl = process.env.URL
 
   const changePrice = (e, index) => {
     const currentPrices = prices;
@@ -56,7 +56,7 @@ const EditProduct = ({ setEditClose, product }) => {
       const updatedProduct = file ? {title, desc, prices, extraOptions, img: url}
                                   : {title, desc, prices, extraOptions}
  console.log(updatedProduct)
-      await axios.put(`${hostUrl}/api/products/${product._id}`, updatedProduct);
+      await axios.put(`/api/products/${product._id}`, updatedProduct);
       setEditMessage(true)
       editMessageHandler()
 
