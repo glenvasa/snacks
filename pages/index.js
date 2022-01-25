@@ -1,4 +1,4 @@
-import {useState} from 'react'
+
 import axios from 'axios'
 import Head from "next/head";
 import Featured from "../components/Featured";
@@ -9,24 +9,7 @@ import styles from "../styles/Home.module.css";
 import {useRouter} from 'next/router';
 
 export default function Home({pizzaList, admin}) {
-  // const [close, setClose] = useState(true)
-
-  // const router = useRouter()
-
-  // const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
-
-// client side data fetching if not using Next
-//  const getProducts = async () => {
-//    const products = await fetch('api/products')
-//    const data = await products.json()
-//    console.log(data)
-//     return data
-//  }
-
-//   useEffect(() => {
-//     getProducts()
-//     }, [])
-
+  
 
   return (
    
@@ -50,20 +33,16 @@ export default function Home({pizzaList, admin}) {
 }
 
 export async function getServerSideProps(ctx) {
-const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+const url = process.env.URL
   const myCookie = ctx.req?.cookies || ''
   let admin = false
-  let res
+  
 
   if (myCookie.token === process.env.TOKEN) {
     admin = true
   }
-   try {
-     res = await axios.get(`${url}/api/products`)
-   } catch (error) {
-     console.log(error.message)
-   }
-  
+   
+   const res = await axios.get(`${url}/api/products`)
   
 
   return {
