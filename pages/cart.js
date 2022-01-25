@@ -16,6 +16,7 @@ const Cart = () => {
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
 
+  
   const url = process.env.URL
 
   const currency = "USD";
@@ -35,8 +36,10 @@ const Cart = () => {
     try {
       const res = await axios.post(`/api/orders`, data);
       if (res.status === 201) {
-        dispatch(reset());
         router.push(`/orders/${res.data._id}`);
+        setTimeout(()=> {
+          dispatch(reset())
+        }, 500)
       }
     } catch (err) {
       console.log(err.message);
@@ -93,6 +96,8 @@ const Cart = () => {
                 customer: shipping.name.full_name,
                 address: [...addressInfo, email],
                   // shipping.address.address_line_1,
+                products: cart.products,
+                cart_qty: cart.quantity,
                 total: cart.total,
                 method: 1,
               });
@@ -103,6 +108,7 @@ const Cart = () => {
     );
   };
 
+  // console.log(cart)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
