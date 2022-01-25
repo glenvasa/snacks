@@ -3,7 +3,7 @@ import Image from "next/image";
 import axios from "axios";
 
 const Order = ({ order }) => {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
   const status = order.status;
 
   const statusClass = (index) => {
@@ -129,7 +129,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
   const res = await axios.get(`${url}/api/orders/${params.id}`);
   return {
     props: { order: res.data },
