@@ -57,8 +57,12 @@ const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   if (myCookie.token === process.env.TOKEN) {
     admin = true
   }
-
-  const res = await axios.get(`${url}/api/products`)
+   try {
+     const res = await axios.get(`${url}/api/products`)
+   } catch (error) {
+     console.log(error.message)
+   }
+  
   
 
   return {
