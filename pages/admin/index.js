@@ -7,7 +7,7 @@ const Admin = ({ orders }) => {
   const [orderList, setOrderList] = useState(orders);
   const status = ["preparing", "on the way", "delivered"];
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app";
+  const url = process.env.URL
 
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];
@@ -81,7 +81,7 @@ const Admin = ({ orders }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app";
+  const url = process.env.URL
   const myCookie = ctx.req?.cookies || "";
 
   if (myCookie.token !== process.env.TOKEN) {
