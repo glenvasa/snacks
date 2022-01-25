@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "../styles/OrderDetail.module.css";
 
 const OrderDetail = ({ total, createOrder }) => {
@@ -16,11 +17,13 @@ const OrderDetail = ({ total, createOrder }) => {
 
   const totalTaxIncluded = (total * 1.0625).toFixed(2)
 
-  const handleClick = () => {
-    createOrder({ customer, address, total, method: 0 });
-  };
+  const cart = useSelector((state) => state.cart);
 
-  console.log(address)
+  const handleClick = () => {
+    createOrder({ customer, address, products : cart.products, cart_qty: cart.quantity, total, method: 0 });
+  };
+  
+  // console.log(address)
 
   return (
     <div className={styles.container}>
