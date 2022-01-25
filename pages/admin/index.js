@@ -19,7 +19,7 @@ const Admin = ({ orders }) => {
     }
 
     try {
-      const res = await axios.put(`${url}/api/orders/` + id, {
+      const res = await axios.put(`/api/orders/` + id, {
         status: currentStatus + 1,
       });
       setOrderList([
