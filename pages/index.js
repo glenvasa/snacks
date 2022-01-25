@@ -53,12 +53,13 @@ export async function getServerSideProps(ctx) {
 const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
   const myCookie = ctx.req?.cookies || ''
   let admin = false
+  let res
 
   if (myCookie.token === process.env.TOKEN) {
     admin = true
   }
    try {
-     const res = await axios.get(`${url}/api/products`)
+     res = await axios.get(`${url}/api/products`)
    } catch (error) {
      console.log(error.message)
    }
