@@ -11,7 +11,7 @@ const Track = () => {
   
   const router = useRouter();
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
 
   const handleClick = async () => {
     console.log(typeof(name))
