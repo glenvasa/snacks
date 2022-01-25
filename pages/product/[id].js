@@ -14,7 +14,7 @@ const Product = ({ pizza }) => {
   const [quantity, setQuantity] = useState(1)
   const [addToCart, setAddToCart] = useState(false)
 
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
 
 const dispatch = useDispatch()
 
@@ -123,7 +123,7 @@ const handleAddToCart = () => {
 };
 
 export async function getServerSideProps({ params }) {
-  const url = "http://localhost:3000" || "https://snacks-glenvasa.vercel.app"
+  const url = process.env.URL
   const res = await axios.get(
     `${url}/api/products/${params.id}`
   );
