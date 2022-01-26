@@ -35,4 +35,15 @@
     .container{
       height: 50vh;
     }
+
+    .imgContainer {
+        margin-top: 20px;
+        
+    }
+
+    .arrowContainer {
+        bottom: 15%
+    }
+
+    
   }
