@@ -11,18 +11,13 @@
 }
 
 .item_logo {
-    
-    display: flex;
+  /* display: flex; */
 }
 
 .item_list {
-
-    display: flex;
-    justify-content: space-between;
-    
+  display: flex;
+  justify-content: space-between;
 }
-
-
 
 /* .item {
     flex: 1;
@@ -34,91 +29,152 @@
     flex: 3;
 } */
 
-.item:last-child{
-    justify-content: flex-end;
+.item:last-child {
+  justify-content: flex-end;
 }
 
 .callButton {
-    background-color: white;
-    border-radius: 50%;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
 }
 
 .texts {
-    margin-left: 20px;
-    color: black;
+  margin-left: 20px;
+  color: black;
 }
 
 .text:first-child {
-    font-size: 12px;
-    font-weight: 500;
+  font-size: 12px;
+  font-weight: 500;
 }
 
-.text:last-child{
-    font-size: 20px;
-    font-weight: bold;
+.text:last-child {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .list {
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    color: black;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: black;
 }
 
 .listItem {
-    margin: 20px;
-    margin-right: 30px;
-    font-weight: 700;
-    font-size: 20px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    cursor: pointer;
-    
+  margin: 20px;
+  margin-right: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
 }
 
-.listItem:hover{
-   
-    color: white;
-    transition: all .3s ease-in-out
+.listItem:hover {
+  color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .cart {
-    position: relative;
-    cursor: pointer
+  position: relative;
+  cursor: pointer;
 }
 
 .counter {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: white;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: #05291a
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #05291a;
 }
 
 .logo {
-    border-radius: 5px;
+  border-radius: 5px;
+
+}
+
+.hamburger {
+  z-index: 999;
+ 
+}
+
+.hamburgerMenuContainer {
+    display: none
+}
+
+.hamMenu {
+    display: none;
 }
 
 
-@media screen and (max-width:480px) {
-      .item:nth-child(2) {
-      display: none;
-    } 
-  
- .item:nth-child(1) {
-      flex: 3;
-    } 
-   
+
+@media screen and (max-width: 480px) {
+  .listItem,
+  .item_cart,
+  .item_logo {
+    display: none;
   }
+
+ 
+
+  .hamburgerMenuContainer {
+      display: block;
+      margin-right: -30px
+      
+      
+  }
+
+  .hamMenu {
+      position: fixed;
+      /* position: absolute;
+      top: 50%;
+      right: .1%; */
+      list-style: none;
+      background-color:  #18cc81;
+      padding-bottom: 5px;
+      display: flex;
+      width: 100%;
+      margin-top: -1px;
+      margin-bottom: 0;
+      justify-content: space-evenly;
+      text-align: center;
+      padding-left: 0;
+      z-index: 999;
+  }
+
+  .hamMenuItem {
+      color: #05291a;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+    z-index: 999;
+    }
+
+ .hamMenuItem:hover{
+    color: white
+ }
+
+ .container {
+     
+ }
+
+  .logo_li {
+    width: 80%;
+    
+    margin-left: 50px;
+    margin-right: 0; 
+  }
+}
