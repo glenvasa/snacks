@@ -9,14 +9,14 @@ const Footer = () => {
             </div>
             <div className={styles.item}>
               <div className={styles.card}>
-                  <h2 className={styles.motto}>
+                  <h2 className={styles.motto} id="motto">
                       {`BEST PIZZA IN TOWN?`} <br/>
                       {`IT'S SNACKS.`} <br/>
                       {`JUST THE FACTS!`}
                   </h2>
               </div>
               <div className={styles.card}>
-                  <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>
+                  <h1 className={styles.title} id='footer-heading'>FIND OUR RESTAURANTS</h1>
                   <p className={styles.text}>
                       17542 Main St. 
                       <br />Brockton, MA 02301
