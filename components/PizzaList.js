@@ -5,9 +5,9 @@ import Image from "next/image";
 const PizzaList = ({ pizzaList }) => {
   return (
     <div className={styles.container} id="pizza-list">
-      <div className={styles.logo}>
+      {/* <div className={styles.logo}>
         <Image src="/images/snacks.png" width={190} height={170} alt="logo" />
-      </div>
+      </div> */}
       <div className={styles.titleContainer}>
         {" "}
         <h1 className={styles.title}>THE BEST PIZZA IN TOWN</h1>
