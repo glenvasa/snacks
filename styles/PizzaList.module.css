@@ -35,6 +35,12 @@
   margin: -50px 0px;
 }
 
+.title {
+  font-family:'Bebas Neue';
+  font-size: 35px;
+  font-weight: lighter;
+}
+
 @media screen and (max-width: 480px) {
   .logo {
     display: block;
