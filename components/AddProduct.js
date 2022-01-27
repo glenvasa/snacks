@@ -133,7 +133,7 @@ const AddProduct = ({ setClose }) => {
           </div>
         </div>
         <button className={styles.addButton} onClick={handleCreate}>
-          Create
+          Add Pizza
         </button>
       </div>
     </div>
