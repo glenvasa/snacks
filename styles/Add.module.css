@@ -16,6 +16,7 @@
     background-color: rgb(12, 11, 11, .8);
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 999;
     display: flex;
     align-items: center;
@@ -99,13 +100,20 @@
   
   .addButton {
     width: 25%;
-    border: none;
+    border: .5px dashed black;
     background-color: teal;
     color: white;
     font-weight: 500;
     cursor: pointer;
     padding: 5px 0;
     align-self: flex-end;
+    border-radius: 5%;
+    transition: all .1s ease-in-out;
+  }
+
+  .addButton:hover {
+    background-color: white;
+    color: teal
   }
 
   .editMessage {
