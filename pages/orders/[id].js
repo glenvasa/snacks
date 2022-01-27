@@ -39,22 +39,21 @@ const Order = ({ order }) => {
                   <span className={styles.customer}>{order.customer}</span>
                 </td>
 
-                <td >
+                <td>
                   <div className={styles.address}>
-                  <span className={styles.address}>{order.address[0]} </span>
-                  <span className={styles.address}>{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
-        
+                    <span className={styles.address}>{order.address[0]} </span>
+                    <span
+                      className={styles.address}
+                    >{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
                   </div>
-               
-                  
-              
-                 
                 </td>
                 <td>
                   <td className={styles.products}>
                     {order.products.map((product) => (
                       <div key={product.index}>
-                        <span>{`${product.quantity} ${product.title}${product.quantity > 1 ? `s` : ''} with `}</span>
+                        <span>{`${product.quantity} ${product.title}${
+                          product.quantity > 1 ? `s` : ""
+                        } with `}</span>
 
                         {product.extrasArray.map((extra, index) => (
                           <span key={extra.index}>
@@ -70,16 +69,15 @@ const Order = ({ order }) => {
                     ))}
                   </td>
                 </td>
-                {/* add list of pizzas ordered, extras on each, qty of each pizza */}               
+                {/* add list of pizzas ordered, extras on each, qty of each pizza */}
                 <td>
                   <div className={styles.prices}>
-                   
-                    {order.products.map(product => (
-                      <span key={product.index}>{`$${product.totalPrice.toFixed(2)}`}</span>
+                    {order.products.map((product) => (
+                      <span key={product.index}>{`$${product.totalPrice.toFixed(
+                        2
+                      )}`}</span>
                     ))}
-                 
                   </div>
-                  
                 </td>
               </tr>
             </tbody>
@@ -152,8 +150,10 @@ const Order = ({ order }) => {
             {(order.total * 0.0625).toFixed(2)}
           </div>
           <div className={styles.totalText}>
-            <b className={`${styles.totalTextTitle} ${styles.orderTotal}`}>Order Total:</b>$
-            {(order.total * 1.0625).toFixed(2)}
+            <b className={`${styles.totalTextTitle} ${styles.orderTotal}`}>
+              Order Total:
+            </b>
+            ${(order.total * 1.0625).toFixed(2)}
           </div>
           {/* button should say Cash on Delivery if cash order */}
           <button disabled className={styles.button}>
