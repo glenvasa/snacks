@@ -46,8 +46,9 @@ const Admin = ({ orders }) => {
         <table className={styles.table}>
           <tbody>
             <tr className={styles.trTitle}>
-              <th>Id (last 5)</th>
               <th>Customer</th>
+              <th>Address</th> 
+              <th>Order</th>
               <th>Total</th>
               <th>Payment</th>
               <th>Status</th>
@@ -55,24 +56,57 @@ const Admin = ({ orders }) => {
             </tr>
           </tbody>
           {orderList.map((order) => (
+            <>
             <tbody key={order._id}>
               <tr className={styles.trTitle}>
-                <td>
+                {/* <td>
                   {order._id.slice(order._id.length - 5, order._id.length)}
-                </td>
+                </td> */}
                 <td>{order.customer}</td>
+                <td>
+                  <div className={styles.address}>
+                    <span className={styles.address}>{order.address[0]} </span>
+                    <span
+                      className={styles.address}
+                    >{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
+                  </div>
+                
+                
+                </td>
+                
+                  <td className={styles.products}>
+                    {order.products.map((product) => (
+                      <div key={product.index}>
+                        <span>{`${product.quantity} ${product.title}${product.quantity > 1 ? `s` : ''} with `}</span>
+
+                        {product.extrasArray.map((extra, index) => (
+                          <span key={extra.index}>
+                            {index === 0
+                              ? null
+                              : index === product.extrasArray.length - 1
+                              ? ` and `
+                              : `, `}
+                            {extra.text}
+                          </span>
+                        ))}
+                      </div>
+                    ))}
+                  </td>
+                
                 <td>${(order.total * 1.0625).toFixed(2)}</td>
                 <td>
                   {order.method === 0 ? <span>cash</span> : <span>paid</span>}
                 </td>
                 <td>{status[order.status]}</td>
                 <td>
-                  <button onClick={() => handleStatus(order._id)}>
+                  <button className={styles.button_stage} onClick={() => handleStatus(order._id)}>
                     Next Stage
                   </button>
                 </td>
               </tr>
             </tbody>
+            <div className={styles.spacer}/>
+            </>
           ))}
         </table>
       </div>
