@@ -34,7 +34,7 @@ const AdminUpdate = ({ products }) => {
   
 
   return (
-    <div className={styles.container}>
+    <div className={styles.updateContainer}>
       <div className={styles.item}>
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>Admin Page: Products</h1>
