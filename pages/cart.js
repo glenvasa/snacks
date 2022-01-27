@@ -39,7 +39,7 @@ const Cart = () => {
         router.push(`/orders/${res.data._id}`);
         setTimeout(()=> {
           dispatch(reset())
-        }, 500)
+        }, 1300)
       }
     } catch (err) {
       console.log(err.message);
