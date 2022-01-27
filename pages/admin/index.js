@@ -116,20 +116,20 @@ const Admin = ({ orders }) => {
 
 export const getServerSideProps = async (ctx) => {
   const url = process.env.URL
-  const myCookie = ctx.req?.cookies || "";
+  // const myCookie = ctx.req?.cookies || "";
 
-  if (myCookie.token !== process.env.TOKEN) {
-    return {
-      redirect: {
-        destination: "/admin/login",
-        permanent: false,
-      },
-    };
-  }
+  // if (myCookie.token !== process.env.TOKEN) {
+  //   return {
+  //     redirect: {
+  //       destination: "/admin/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   const productRes = await axios.get(`${url}/api/products`);
   const orderRes = await axios.get(`${url}/api/orders`);
-  console.log(orderRes.data);
+  // console.log(orderRes.data);
   return {
     props: {
       orders: orderRes.data,
