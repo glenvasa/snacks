@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
+import cookie from 'cookie'
 
 const Login = () => {
   const [username, setUsername] = useState(null);
@@ -11,6 +12,10 @@ const Login = () => {
   const router = useRouter();
 
   const url = process.env.URL
+
+  if (cookie.token === process.env.TOKEN) {
+    router.push('/admin')
+  }
 
   const handleClick = async () => {
     try {
