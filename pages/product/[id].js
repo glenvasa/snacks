@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct} from '../../redux/cartSlice'
 
 
@@ -17,6 +17,9 @@ const Product = ({ pizza }) => {
   const url = process.env.URL
 
 const dispatch = useDispatch()
+
+const cart = useSelector((state) => state.cart);
+console.log(cart)
 
 const handleAddToCart = () => {
     dispatch(addProduct({...pizza, extrasArray, totalPrice, quantity}))
