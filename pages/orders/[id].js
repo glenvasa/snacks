@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import styles from "../../styles/Order.module.css";
 import Image from "next/image";
 import axios from "axios";
 
 const Order = ({ order }) => {
-  const url = process.env.URL
+  const url = process.env.URL;
+
+  const cart = useSelector((state) => state.cart);
   const status = order.status;
 
   const statusClass = (index) => {
@@ -12,7 +15,9 @@ const Order = ({ order }) => {
     if (index - status > 1) return styles.undone;
   };
 
-  
+  // const extras = order.
+
+  // console.log(order);
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -20,31 +25,61 @@ const Order = ({ order }) => {
           <table className={styles.table}>
             <tbody>
               <tr className={styles.trTitle}>
-                <th>Order ID</th>
                 <th>Customer</th>
                 <th>Address</th>
-                <th>Total</th>
+                <th>Order</th>
+                {/* <th>Quantity</th> */}
+                <th>Price/Pizza</th>
+                {/* <th>Total</th> */}
               </tr>
             </tbody>
             <tbody>
               <tr className={styles.tr}>
-                <td>
-                  <span className={styles.id}>{order._id}</span>
+                <td className={styles.products}>
+                  <span className={styles.customer}>{order.customer}</span>
+                </td>
+
+                <td >
+                  <div className={styles.address}>
+                  <span className={styles.address}>{order.address[0]} </span>
+                  <span className={styles.address}>{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
+        
+                  </div>
+               
+                  
+              
+                 
                 </td>
                 <td>
-                  <span className={styles.name}>{order.customer}</span>
+                  <td className={styles.products}>
+                    {order.products.map((product) => (
+                      <div key={product.index}>
+                        <span>{`${product.quantity} ${product.title}${product.quantity > 1 ? `s` : ''} with `}</span>
+
+                        {product.extrasArray.map((extra, index) => (
+                          <span key={extra.index}>
+                            {index === 0
+                              ? null
+                              : index === product.extrasArray.length - 1
+                              ? ` and `
+                              : `, `}
+                            {extra.text}
+                          </span>
+                        ))}
+                      </div>
+                    ))}
+                  </td>
                 </td>
+                {/* add list of pizzas ordered, extras on each, qty of each pizza */}               
                 <td>
-                  {`${order.address[0]}, 
-                ${order.address[1]},
-                ${order.address[2]},
-                ${order.address[3]}`}
-                </td>
-                {/* add list of pizzas ordered, extras on each, qty of each pizza */}
-                <td>
-                  <span className={styles.total}>
-                    ${(order.total * 1.0625).toFixed(2)}
-                  </span>
+                  <div className={styles.prices}>
+                   
+                    {order.products.map(product => (
+                      <span key={product.index}>{`$${product.totalPrice.toFixed(2)}`}</span>
+                    ))}
+                 
+                  </div>
+                  
                 </td>
               </tr>
             </tbody>
@@ -107,7 +142,7 @@ const Order = ({ order }) => {
       </div>
       <div className={styles.right}>
         <div className={styles.wrapper}>
-          <h2 className={styles.title}>ORDER TOTAL</h2>
+          {/* <h2 className={styles.title}>ORDER TOTAL</h2> */}
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Subtotal:</b>$
             {order.total.toFixed(2)}
@@ -117,12 +152,12 @@ const Order = ({ order }) => {
             {(order.total * 0.0625).toFixed(2)}
           </div>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Order Total:</b>$
+            <b className={`${styles.totalTextTitle} ${styles.orderTotal}`}>Order Total:</b>$
             {(order.total * 1.0625).toFixed(2)}
           </div>
           {/* button should say Cash on Delivery if cash order */}
           <button disabled className={styles.button}>
-            PAID 
+            {order.method === 0 ? "CASH ON DELIVERY" : "PAID"}
           </button>
         </div>
       </div>
@@ -131,7 +166,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const url = process.env.URL
+  const url = process.env.URL;
   const res = await axios.get(`${url}/api/orders/${params.id}`);
   return {
     props: { order: res.data },
