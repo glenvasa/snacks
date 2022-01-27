@@ -2,13 +2,17 @@ import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {useRouter} from "next/router";
 import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   const [hamMenuOpen, setHamMenuOpen] = useState(false);
 
   const quantity = useSelector((state) => state.cart.quantity);
+
+  const router = useRouter()
+ 
 
   return (
     <>
@@ -25,10 +29,10 @@ const Navbar = () => {
         <div className={styles.item_list}>
           <ul className={styles.list}>
             <Link href="/" passHref>
-              <li className={styles.listItem}>HomePage</li>
+              <li className={`${styles.listItem} ${router.asPath === '/' ? `${styles.active}` : ''}`}>HomePage</li>
             </Link>
             <Link href="/#pizza-list" passHref>
-              <li className={styles.listItem}>Menu</li>
+              <li className={`${styles.listItem} ${router.asPath === '/#pizza-list' ? `${styles.active}` : ''}`}>Menu</li>
             </Link>
 
             <Link href="/" passHref>
@@ -44,14 +48,14 @@ const Navbar = () => {
             </Link>
 
             <Link href="/track" passHref>
-              <li className={styles.listItem}>Order Track</li>
+              <li className={`${styles.listItem} ${router.asPath === '/track' || router.asPath.startsWith('/orders') ? `${styles.active}` : ''}`}>Order Track</li>
             </Link>
             <Link href="/#footer" passHref>
-              <li className={styles.listItem}>Contact</li>
+              <li className={`${styles.listItem} ${router.asPath === '/#footer' ? `${styles.active}` : ''}`}>Contact</li>
             </Link>
             {/* <li className={styles.listItem}>Blog</li> */}
             <Link href="/admin/login" passHref>
-              <li className={styles.listItem}>Admin</li>
+              <li className={`${styles.listItem} ${router.asPath.startsWith('/admin') ? `${styles.active}` : ''}`}>Admin</li>
             </Link>
           </ul>
         </div>
