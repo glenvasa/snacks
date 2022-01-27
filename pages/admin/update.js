@@ -112,16 +112,16 @@ export default AdminUpdate;
 
 export const getServerSideProps = async (ctx) => {
   const url = process.env.URL
-  const myCookie = ctx.req?.cookies || "";
+  // const myCookie = ctx.req?.cookies || "";
 
-  if (myCookie.token !== process.env.TOKEN) {
-    return {
-      redirect: {
-        destination: "/admin/login",
-        permanent: false,
-      },
-    };
-  }
+  // if (myCookie.token !== process.env.TOKEN) {
+  //   return {
+  //     redirect: {
+  //       destination: "/admin/login",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
   const productRes = await axios.get(`${url}/api/products`);
 
