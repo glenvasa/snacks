@@ -24,10 +24,16 @@ const handler = async (req, res) => {
       });
       res.status(200).json(order);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).json(err.message);
     }
   }
   if (method === "DELETE") {
+    try {
+      const order = await Order.findByIdAndDelete(id)
+      res.status(200).json('Order successfully delete')
+    } catch (err) {
+      res.status(500).json(err.message)
+    }
   }
 };
 
