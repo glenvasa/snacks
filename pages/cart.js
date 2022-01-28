@@ -15,6 +15,7 @@ import OrderDetail from "../components/OrderDetail";
 const Cart = () => {
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
+  const [cashOpen, setCashOpen] = useState(false)
 
   
   const url = process.env.URL
@@ -187,7 +188,10 @@ const Cart = () => {
             <div className={styles.paymentMethods}>
               <button
                 className={styles.payButton}
-                onClick={() => setCash(true)}
+                onClick={() => {
+                  setCash(true)
+                  setCashOpen(true)
+                }}
               >
                 CASH ON DELIVERY
               </button>
@@ -210,7 +214,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
+      {cash && cashOpen && <OrderDetail total={cart.total} createOrder={createOrder} setCashOpen={setCashOpen} />}
     </div>
   );
 };
