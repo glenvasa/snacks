@@ -82,7 +82,7 @@ const EditProduct = ({ setEditClose, product }) => {
         <h1>Edit a Pizza</h1>
         <div className={styles.item}>
           <label className={styles.label}>Choose an image</label>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          <input  type="file" className={styles.file} onChange={(e) => setFile(e.target.files[0])} />
         </div>
         <div className={styles.item}>
           <label className={styles.label}>Title</label>
@@ -146,7 +146,7 @@ const EditProduct = ({ setEditClose, product }) => {
               onChange={handleExtraInput}
             />
             <button className={styles.extraButton} onClick={handleAddExtra}>
-              Add
+              Add Extra
             </button>
           </div><h5>{`Click 'extra' name below to delete`}</h5>
           <div className={styles.extraItems}> 
