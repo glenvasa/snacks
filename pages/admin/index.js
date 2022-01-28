@@ -43,11 +43,12 @@ const Admin = ({ orders }) => {
   const handleDeleteOrder = async (id) => {
    confirm("Are you sure you want to delete this order?")
       try {
-        await axios.delete(`/api/orders/` + id)
+        await axios.delete(`/api/orders/` + id) 
+        alert("Order deleted")
       } catch (err) {
         console.log(err.message || "Something went wrong")
       }
-    alert("Order deleted")
+   
   }
 
 
@@ -83,7 +84,7 @@ const Admin = ({ orders }) => {
               <th>Total</th>
               <th>Payment</th>
               <th>Status</th>
-              <th>Action</th>
+              <th>Order Action</th>
             </tr>
           </tbody>
           {orderList.map((order) => (
@@ -110,9 +111,9 @@ const Admin = ({ orders }) => {
                       <div key={product.index}>
                         <span>{`${product.quantity} ${product.title}${
                           product.quantity > 1 ? `s` : ""
-                        } with `}</span>
+                        } ${product.extrasArray.length === 0 ? '' : 'with'} `}</span>
 
-                        {product.extrasArray.map((extra, index) => (
+                        {product.extrasArray.length !== 0 ? product.extrasArray.map((extra, index) => (
                           <span key={extra.index}>
                             {index === 0
                               ? null
@@ -121,7 +122,7 @@ const Admin = ({ orders }) => {
                               : `, `}
                             {extra.text}
                           </span>
-                        ))}
+                        )) : null}
                       </div>
                     ))}
                   </td>
