@@ -41,13 +41,19 @@ const Admin = ({ orders }) => {
   };
 
   const handleDeleteOrder = async (id) => {
-   confirm("Are you sure you want to delete this order?")
-      try {
+   const response = confirm("Are you sure you want to delete this order?")
+     
+    if (response === true) {
+try {
         await axios.delete(`/api/orders/` + id) 
         alert("Order deleted")
       } catch (err) {
         console.log(err.message || "Something went wrong")
       }
+
+
+    }
+      
    
   }
 
