@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
 
-
 const EditProduct = ({ setEditClose, product }) => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(product.title);
@@ -10,9 +9,9 @@ const EditProduct = ({ setEditClose, product }) => {
   const [prices, setPrices] = useState(product.prices);
   const [extraOptions, setExtraOptions] = useState(product.extraOptions);
   const [extra, setExtra] = useState(null);
-  const [editMessage, setEditMessage] = useState(false)
+  const [editMessage, setEditMessage] = useState(false);
 
-  const hostUrl = process.env.URL
+  const hostUrl = process.env.URL;
 
   const changePrice = (e, index) => {
     const currentPrices = prices;
@@ -29,50 +28,50 @@ const EditProduct = ({ setEditClose, product }) => {
   };
 
   const handleDeleteExtra = (index) => {
-     const deletedOptionText = extraOptions[index].text
-    const currentOptions = extraOptions
-     const removedOptions = currentOptions.filter(option => option.text !== deletedOptionText)
-     
-      setExtraOptions(removedOptions)
-    
+    const deletedOptionText = extraOptions[index].text;
+    const currentOptions = extraOptions;
+    const removedOptions = currentOptions.filter(
+      (option) => option.text !== deletedOptionText
+    );
+
+    setExtraOptions(removedOptions);
   };
 
   const handleUpdate = async () => {
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", "uploads");
-    
+
     try {
-      if(file){
+      if (file) {
+        const uploadRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/dwpfbzcnl/image/upload",
+          data
+        );
 
-        
-      const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dwpfbzcnl/image/upload",
-        data     
-      );
+        const { url } = uploadRes.data;
+      }
 
-      const { url } = uploadRes.data;}
-
-      const updatedProduct = file ? {title, desc, prices, extraOptions, img: url}
-                                  : {title, desc, prices, extraOptions}
- console.log(updatedProduct)
+      const updatedProduct = file
+        ? { title, desc, prices, extraOptions, img: url }
+        : { title, desc, prices, extraOptions };
+      console.log(updatedProduct);
       await axios.put(`/api/products/${product._id}`, updatedProduct);
-      setEditMessage(true)
-      editMessageHandler()
-
+      setEditMessage(true);
+      editMessageHandler();
     } catch (err) {
       console.log(err);
     }
   };
 
-const editMessageHandler = () => {
+  const editMessageHandler = () => {
     setTimeout(() => {
-        setEditMessage(false) 
-        setEditClose(true);
-    }, 1300)
-}
-// console.log(product)
-// console.log(extraOptions);
+      setEditMessage(false);
+      setEditClose(true);
+    }, 1300);
+  };
+  // console.log(product)
+  // console.log(extraOptions);
 
   return (
     <div className={styles.container}>
@@ -83,8 +82,7 @@ const editMessageHandler = () => {
         <h1>Edit a Pizza</h1>
         <div className={styles.item}>
           <label className={styles.label}>Choose an image</label>
-          <input type="file" 
-          onChange={(e) => setFile(e.target.files[0])} />
+          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
         </div>
         <div className={styles.item}>
           <label className={styles.label}>Title</label>
@@ -98,7 +96,7 @@ const editMessageHandler = () => {
         <div className={styles.item}>
           <label className={styles.label}>Desc</label>
           <textarea
-          value={desc}
+            value={desc}
             rows={4}
             type="text"
             onChange={(e) => setDesc(e.target.value)}
@@ -108,28 +106,25 @@ const editMessageHandler = () => {
           <label className={styles.label}>Prices</label>
           <div className={styles.priceContainer}>
             <input
-           
               className={`${styles.input} ${styles.inputSm}`}
               type="number"
               placeholder="Small"
-              onChange={(e) => changePrice(e, 0)} 
-            //   value={prices[0]}
+              onChange={(e) => changePrice(e, 0)}
+              //   value={prices[0]}
             />
             <input
-             
               className={`${styles.input} ${styles.inputSm}`}
               type="number"
               placeholder="Medium"
               onChange={(e) => changePrice(e, 1)}
-            //    value={prices[1]}
+              //    value={prices[1]}
             />
             <input
-             
               className={`${styles.input} ${styles.inputSm}`}
               type="number"
               placeholder="Large"
-              onChange={(e) => changePrice(e, 2)} 
-            //   value={prices[2]}
+              onChange={(e) => changePrice(e, 2)}
+              //   value={prices[2]}
             />
           </div>
         </div>
@@ -150,29 +145,32 @@ const editMessageHandler = () => {
               name="price"
               onChange={handleExtraInput}
             />
-            <button className={styles.extraButton} 
-            onClick={handleAddExtra}
-            >
+            <button className={styles.extraButton} onClick={handleAddExtra}>
               Add
             </button>
-          </div>
-          <div className={styles.extraItems}>
+          </div><h5>{`Click 'extra' name below to delete`}</h5>
+          <div className={styles.extraItems}> 
+          
             {extraOptions.map((option, index) => (
-              <span key={index} className={styles.extraItem} onClick={() => handleDeleteExtra(index)}>
-                {option.text}: ${option.price}  
+              <span
+                key={index}
+                className={styles.extraItem}
+                onClick={() => handleDeleteExtra(index)}
+              >
+                {option.text}: ${option.price}
               </span>
-              
-             
             ))}
           </div>
+         
+          <div>
+            
+          </div>
         </div>
-        <button className={styles.addButton} 
-        onClick={handleUpdate}
-        >
-          Submit 
+        <button className={styles.addButton} onClick={handleUpdate}>
+          Submit
         </button>
         {editMessage && (
-            <span className={styles.editMessage}>Pizza info updated</span>
+          <span className={styles.editMessage}>Pizza info updated</span>
         )}
       </div>
     </div>
