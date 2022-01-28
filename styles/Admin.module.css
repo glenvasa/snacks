@@ -1,6 +1,12 @@
 .container {
   padding: 10px 50px;
   display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.item {
+  width: 100%;
 }
 
 .updateContainer {
@@ -16,6 +22,7 @@
   width: 100%;
   border-spacing: 20px;
   text-align: left;
+  
 }
 
 .button {
@@ -73,9 +80,18 @@
 display: flex;
 }
 
+.button {
+font-weight: 700;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+width: 50%
+}
+
 .button:first-child {
+/* display: flex;
+align-items: center; */
   background-color: teal;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .button:first-child:hover {
@@ -84,6 +100,7 @@ display: flex;
 }
 
 .button:last-child {
+  margin-top: 5px;
   background-color: crimson;
 }
 
@@ -104,7 +121,7 @@ display: flex;
 }
 
 .trTitle > th:last-child {
-  text-align: center;
+  text-align:justify;
 }
 
 .extras {
