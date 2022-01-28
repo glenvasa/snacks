@@ -2,7 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import AddButton from "../../components/AddButton";
 import AddProduct from "../../components/AddProduct";
 import EditProduct from "../../components/EditProduct";
@@ -14,21 +14,26 @@ const AdminUpdate = ({ products }) => {
   const [editClose, setEditClose] = useState(true);
   const [editProduct, setEditProduct] = useState(null);
 
-  const router = useRouter()
+  const router = useRouter();
 
-  if (typeof window !== 'undefined') {
-    localStorage.getItem('admin') === 'true' ? null : router.push('/admin/login')
+  if (typeof window !== "undefined") {
+    localStorage.getItem("admin") === "true"
+      ? null
+      : router.push("/admin/login");
   }
- 
 
-  const url = process.env.URL
+  const url = process.env.URL;
 
   const handleDelete = async (id) => {
-    try {
-      const res = await axios.delete(`/api/products/` + id);
-      setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
-    } catch (err) {
-      console.log(err.message || "Something went wrong");
+    const response = confirm("Are you sure you want to delete this order?");
+
+    if (response === true) {
+      try {
+        const res = await axios.delete(`/api/products/` + id);
+        setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
+      } catch (err) {
+        console.log(err.message || "Something went wrong");
+      }
     }
   };
 
@@ -40,10 +45,9 @@ const AdminUpdate = ({ products }) => {
   };
 
   const logout = () => {
-    localStorage.clear()
-    router.push('/')
-  }
-  
+    localStorage.clear();
+    router.push("/");
+  };
 
   return (
     <div className={styles.updateContainer}>
@@ -53,7 +57,9 @@ const AdminUpdate = ({ products }) => {
           <Link href="/admin" passHref>
             <button className={styles.updatePageLink}>Orders Page</button>
           </Link>
-          <button className={styles.logout} onClick={() => logout()}>Admin Logout</button>
+          <button className={styles.logout} onClick={() => logout()}>
+            Admin Logout
+          </button>
           <AddButton setClose={setClose} />
         </div>
         <table className={styles.table}>
@@ -124,7 +130,7 @@ const AdminUpdate = ({ products }) => {
 export default AdminUpdate;
 
 export const getServerSideProps = async (ctx) => {
-  const url = process.env.URL
+  const url = process.env.URL;
   // const myCookie = ctx.req?.cookies || "";
 
   // if (myCookie.token !== process.env.TOKEN) {
