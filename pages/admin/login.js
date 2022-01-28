@@ -16,6 +16,10 @@ const Login = () => {
   // if (cookie.token === process.env.TOKEN) {
   //   router.push('/admin')
   // }
+  if (typeof window !== 'undefined') {
+     localStorage.getItem('admin') === 'true' ? router.push('/admin') : null
+  }
+ 
 
   const handleClick = async () => {
     try {
@@ -23,6 +27,7 @@ const Login = () => {
         username,
         password,
       });
+      localStorage.setItem('admin', 'true')
       router.push("/admin");
     } catch (err) {
       setError(true);
