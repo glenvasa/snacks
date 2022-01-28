@@ -2,6 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from 'next/router'
 import AddButton from "../../components/AddButton";
 import AddProduct from "../../components/AddProduct";
 import EditProduct from "../../components/EditProduct";
@@ -12,6 +13,13 @@ const AdminUpdate = ({ products }) => {
   const [close, setClose] = useState(true);
   const [editClose, setEditClose] = useState(true);
   const [editProduct, setEditProduct] = useState(null);
+
+  const router = useRouter()
+
+  if (typeof window !== 'undefined') {
+    localStorage.getItem('admin') === 'true' ? null : router.push('/admin/login')
+  }
+ 
 
   const url = process.env.URL
 
@@ -31,6 +39,10 @@ const AdminUpdate = ({ products }) => {
     setEditClose(false);
   };
 
+  const logout = () => {
+    localStorage.clear()
+    router.push('/')
+  }
   
 
   return (
@@ -41,6 +53,7 @@ const AdminUpdate = ({ products }) => {
           <Link href="/admin" passHref>
             <button className={styles.updatePageLink}>Orders Page</button>
           </Link>
+          <button className={styles.logout} onClick={() => logout()}>Admin Logout</button>
           <AddButton setClose={setClose} />
         </div>
         <table className={styles.table}>
