@@ -53,9 +53,10 @@ const Order = ({ order }) => {
                       <div key={product.index}>
                         <span>{`${product.quantity} ${product.title}${
                           product.quantity > 1 ? `s` : ""
-                        } with `}</span>
+                        } ${product.extrasArray.length === 0 ? '' : 'with'} `}</span>
 
-                        {product.extrasArray.map((extra, index) => (
+                        {product.extrasArray.length !==0 
+                        ? product.extrasArray.map((extra, index) => (
                           <span key={extra.index}>
                             {index === 0
                               ? null
@@ -64,7 +65,7 @@ const Order = ({ order }) => {
                               : `, `}
                             {extra.text}
                           </span>
-                        ))}
+                        )) : null}
                       </div>
                     ))}
                   </td>
