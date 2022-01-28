@@ -62,7 +62,7 @@ const AddProduct = ({ setClose }) => {
         <h1>Add a new Pizza</h1>
         <div className={styles.item}>
           <label className={styles.label}>Choose an image</label>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          <input type="file" className={styles.file} onChange={(e) => setFile(e.target.files[0])} />
         </div>
         <div className={styles.item}>
           <label className={styles.label}>Title</label>
@@ -121,7 +121,7 @@ const AddProduct = ({ setClose }) => {
               onChange={handleExtraInput}
             />
             <button className={styles.extraButton} onClick={handleExtra}>
-              Add
+              Add Extra
             </button>
           </div>
           <div className={styles.extraItems}>
