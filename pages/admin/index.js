@@ -1,6 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
+import {useRouter} from 'next/router'
 import styles from "../../styles/Admin.module.css";
 
 const Admin = ({ orders }) => {
@@ -9,6 +10,13 @@ const Admin = ({ orders }) => {
 
   const url = process.env.URL
 
+  const router = useRouter()
+
+  if (typeof window !== 'undefined') {
+localStorage.getItem('admin') === 'true' ? null : router.push('/admin/login')
+  }
+  
+  
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];
 
@@ -31,6 +39,11 @@ const Admin = ({ orders }) => {
     }
   };
 
+  const logout = () => {
+    localStorage.clear()
+    router.push('/')
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.item}>
@@ -40,7 +53,9 @@ const Admin = ({ orders }) => {
             <span className={styles.updatePageLink}>
               Products Page
             </span>
+            
           </Link>
+          <button className={styles.logout} onClick={() => logout()}>Admin Logout</button>
         </div>
 
         <table className={styles.table}>
