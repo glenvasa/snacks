@@ -2,33 +2,44 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "../styles/OrderDetail.module.css";
 
-const OrderDetail = ({ total, createOrder }) => {
+const OrderDetail = ({ total, createOrder, setCashOpen }) => {
   const [customer, setCustomer] = useState("");
   // const [address, setAddress] = useState([]);
-  const [street, setStreet] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [zip, setZip] = useState('')
-  const [phone, setPhone] = useState('')
-  const [email, setEmail] = useState('')
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
+  const address = [street, city, state, zip, phone, email];
 
-  const address = [street, city, state, zip, phone, email]
-
-  const totalTaxIncluded = (total * 1.0625).toFixed(2)
+  const totalTaxIncluded = (total * 1.0625).toFixed(2);
 
   const cart = useSelector((state) => state.cart);
 
   const handleClick = () => {
-    createOrder({ customer, address, products : cart.products, cart_qty: cart.quantity, total, method: 0 });
+    createOrder({
+      customer,
+      address,
+      products: cart.products,
+      cart_qty: cart.quantity,
+      total,
+      method: 0,
+    });
   };
-  
+
   // console.log(address)
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>You will pay ${totalTaxIncluded} on delivery.</h1>
+        <button className={styles.close} onClick={() => setCashOpen(false)}>
+          X
+        </button>
+        <h1 className={styles.title}>
+          You will pay ${totalTaxIncluded} on delivery.
+        </h1>
         <div className={styles.item}>
           <label className={styles.label}>Name</label>
           <input
