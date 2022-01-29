@@ -13,16 +13,17 @@ const Product = ({ pizza }) => {
   const [totalPrice, setTotalPrice] = useState(pizza.prices[0]);
   const [quantity, setQuantity] = useState(1)
   const [addToCart, setAddToCart] = useState(false)
+  const [size, setSize] = useState('Small')
 
   const url = process.env.URL
 
 const dispatch = useDispatch()
 
 const cart = useSelector((state) => state.cart);
-console.log(cart)
+// console.log(cart)
 
 const handleAddToCart = () => {
-    dispatch(addProduct({...pizza, extrasArray, totalPrice, quantity}))
+    dispatch(addProduct({...pizza, extrasArray, totalPrice, quantity, size}))
     setAddToCart(true)
     setTimeout(() => {
       setAddToCart(false)
@@ -49,6 +50,7 @@ const handleAddToCart = () => {
     setTotalPrice(basePrice + extrasCost);
   }, [basePrice, extrasCost]);
 
+  console.log(size);
   
 
   return (
@@ -71,7 +73,7 @@ const handleAddToCart = () => {
         <div className={styles.sizes}>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[0])}
+            onClick={() => setBasePrice(pizza.prices[0], setSize('Small'))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Small</span>
@@ -79,7 +81,7 @@ const handleAddToCart = () => {
           </div>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[1])}
+            onClick={() => setBasePrice(pizza.prices[1], setSize('Medium'))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Medium</span>
@@ -87,7 +89,7 @@ const handleAddToCart = () => {
           </div>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[2])}
+            onClick={() => setBasePrice(pizza.prices[2], setSize('Large'))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Large</span>
