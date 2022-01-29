@@ -5,7 +5,8 @@
   height: 100px;
   width: 100%;
   padding: 0px 50px;
-  background-color: #18cc81;
+  background-color: rgb(168, 40, 40);
+   /* #18cc81; */
   position: sticky;
   top: 0;
   z-index: 999;
@@ -17,7 +18,7 @@
 
 .item_list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 /* .item {
@@ -35,7 +36,7 @@
 }
 
 .callButton {
-  background-color: white;
+  background-color:rgb(247, 236, 236);
   border-radius: 50%;
   padding: 10px;
   width: 50px;
@@ -44,20 +45,22 @@
 
 .texts {
   margin-left: 20px;
-  color: black;
-  font-family:'Bebas Neue';
+  color: rgb(15, 1, 3);
+  font-family:'Arial';
   font-weight: 700;
+  
   
 }
 
 .text:first-child {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .text:last-child {
   font-size: 24px;
   font-weight: bold;
+  color: rgb(247, 236, 236)
 }
 
 .list {
@@ -66,13 +69,13 @@
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  color: black;
+  color: rgb(247, 236, 236);
 }
 
 .listItem {
   margin: 20px;
-  margin-right: 50px;
-  margin-left: 40px;
+  margin-right: 40px;
+  margin-left: 60px;
   /* font-weight:bold; */
   font-size: 25px;
   font-family:'Bebas Neue';
@@ -81,12 +84,12 @@
 }
 
 .listItem:hover {
-  color: white;
+  color: black;
   transition: all 0.3s ease-in-out;
 }
 
 .active {
-  color: white
+  color: black
 }
 
 .cart {
@@ -110,11 +113,19 @@
   color: #05291a;
 }
 
-.logo {
-  border-radius: 5px;
 
+.logoDiv {
+ background-color: rgb(19, 8, 8);
+ 
+ position: absolute;
+ top: 100px;
+ left: 100px;
+ 
 }
 
+.logo {
+  width: 100px;
+}
 .hamburger {
   z-index: 999;
  
@@ -132,6 +143,7 @@
   cursor: pointer;
   transition: all .2s ease-in-out;
   margin-left: 10px;
+  
 }
 
 .logo_li:hover{
