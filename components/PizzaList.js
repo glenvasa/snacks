@@ -1,8 +1,25 @@
 import styles from "../styles/PizzaList.module.css";
 import PizzaCard from "./PizzaCard";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const PizzaList = ({ pizzaList }) => {
+  const [searchText, setSearchText] = useState("");
+  const [filteredList, setFilteredList] = useState(pizzaList);
+
+  const filteredPizzaList = (searchText) => {
+    setFilteredList(
+      pizzaList.filter((pizza) =>
+        pizza.title.toLowerCase().includes(searchText.toLowerCase()) || pizza.desc.toLowerCase().includes(searchText.toLowerCase())
+      )
+    );
+  };
+
+  useEffect(() => {
+    filteredPizzaList(searchText);
+    // console.log(filteredList);
+  }, [searchText]);
+
   return (
     <div className={styles.container} id="pizza-list">
       {/* <div className={styles.logo}>
@@ -16,12 +33,19 @@ const PizzaList = ({ pizzaList }) => {
           your favorite toppings!
         </p>{" "}
       </div>
+      <div className={styles.search}>
+        <label htmlFor="search">Search pizza name or description</label>
+        <input
+          type="search"
+          id="search"
+          onChange={(e) => setSearchText(e.target.value)}
+        ></input>
+      </div>
 
       <div className={styles.wrapper}>
-        {pizzaList.map((pizza) => (
+        {filteredList.map((pizza) => (
           <PizzaCard key={pizza._id} pizza={pizza} />
         ))}
-        ;
       </div>
     </div>
   );
