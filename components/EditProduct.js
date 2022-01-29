@@ -149,7 +149,7 @@ const EditProduct = ({ setEditClose, product }) => {
               Add Extra
             </button>
           </div><h5>{`Click 'extra' name below to delete`}</h5>
-          <div className={styles.extraItems}> 
+          <div className={styles.extraItemsEdit}> 
           
             {extraOptions.map((option, index) => (
               <span
@@ -157,7 +157,7 @@ const EditProduct = ({ setEditClose, product }) => {
                 className={styles.extraItem}
                 onClick={() => handleDeleteExtra(index)}
               >
-                {option.text}: ${option.price}
+                {option.text}: ${option.price.toFixed(2)}
               </span>
             ))}
           </div>
