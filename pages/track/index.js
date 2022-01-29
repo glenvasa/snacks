@@ -14,7 +14,7 @@ const Track = () => {
   const url = process.env.URL
 
   const handleClick = async () => {
-    console.log(typeof(name))
+   
     try {
       const res = await axios.post(`/api/track`, {
         firstName,
