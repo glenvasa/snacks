@@ -109,7 +109,7 @@ const Cart = () => {
     );
   };
 
-  // console.log(cart)
+  console.log(cart)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -153,7 +153,9 @@ const Cart = () => {
                   </span>
                 </td>
                 <td>
-                  <span className={styles.quantity}>{product.quantity}</span>
+                  <span className={styles.quantity}>{product.quantity} {product.size}
+                  {product.quantity > 1 ? 's' : ''}
+                  </span>
                 </td>
                 <td>
                   <span className={styles.total}>
