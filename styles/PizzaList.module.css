@@ -20,6 +20,7 @@
   color: #444;
   width: 70%;
   text-align: center;
+  font-weight: bold;
 }
 
 .wrapper {
@@ -40,6 +41,17 @@
   font-size: 35px;
   font-weight: lighter;
 }
+
+.search {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  width: 15rem
+}
+
+
 
 @media screen and (max-width: 480px) {
   .logo {
