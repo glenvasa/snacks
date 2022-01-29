@@ -17,7 +17,7 @@ const Order = ({ order }) => {
 
   // const extras = order.
 
-  // console.log(order);
+  console.log(order);
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -51,7 +51,7 @@ const Order = ({ order }) => {
                   <td className={styles.products}>
                     {order.products.map((product) => (
                       <div key={product.index}>
-                        <span>{`${product.quantity} ${product.title}${
+                        <span>{`• ${product.quantity} ${product.size} ${product.title}${
                           product.quantity > 1 ? `s` : ""
                         } ${product.extrasArray.length === 0 ? '' : 'with'} `}</span>
 
