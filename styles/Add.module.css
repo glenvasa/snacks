@@ -97,7 +97,14 @@
   justify-content: space-between;
 }
 
-.extraItems {
+.extraItemsAdd {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.extraItemsEdit {
   margin-bottom: 20px;
   margin-top: -10px;
   display: flex;
@@ -106,6 +113,7 @@
 
 .extraItem {
   padding: 5px;
+  margin-bottom: 5px;
   font-size: 14px;
   border: 1px solid tomato;
   background-color: white;
