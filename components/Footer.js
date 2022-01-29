@@ -19,23 +19,23 @@ const Footer = () => {
                   <h1 className={styles.title} id='footer-heading'>FIND OUR RESTAURANTS</h1>
                   <p className={styles.text}>
                       17542 Main St. 
-                      <br />Brockton, MA 02301
-                      <br />508-558-2681
+                      <br />Boston, MA 02121
+                      <br />617-558-2681
                   </p>
                   <p className={styles.text}>
                       754  N. Main St. 
-                      <br />Brockton, MA 02301
-                      <br />508-558-2682
+                      <br />Boston, MA 02121
+                      <br />617-558-2682
                   </p>
                   <p className={styles.text}>
                       542 S. Main St. 
-                      <br />Brockton, MA 02301
-                      <br />508-558-2683
+                      <br />Boston, MA 02121
+                      <br />617-558-2683
                   </p>
                   <p className={styles.text}>
                       175 E. Main St. 
-                      <br />Brockton, MA 02301
-                      <br />508-558-2684
+                      <br />Boston, MA 02121
+                      <br />617-558-2684
                   </p>
               </div>
               <div className={styles.card}>
