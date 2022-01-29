@@ -157,7 +157,7 @@ const EditProduct = ({ setEditClose, product }) => {
                 className={styles.extraItem}
                 onClick={() => handleDeleteExtra(index)}
               >
-                {option.text}: ${option.price.toFixed(2)}
+                {option.text}: ${option.price}
               </span>
             ))}
           </div>
