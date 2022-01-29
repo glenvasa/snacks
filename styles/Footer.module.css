@@ -18,12 +18,14 @@
 
 .card {
     flex: 1;
-    padding: 0px 20px
+    padding: 0px 20px;
+    
 }
 
 .title {
     font-size: 18px;
-    color: #b7903c
+    color: rgb(168, 40, 40);
+    /* #b7903c */
 }
 
 .text {
