@@ -23,7 +23,7 @@ const Navbar = () => {
           </div>
           <div className={styles.texts}>
             <div className={styles.text}>ORDER ONLINE OR CALL</div>
-            <div className={styles.text}>508-558-2681</div>
+            <div className={styles.text}>617-558-2681</div>
           </div>
         </div>
         <div className={styles.item_list}>
@@ -37,13 +37,17 @@ const Navbar = () => {
 
             <Link href="/" passHref>
               <li className={styles.logo_li}>
-                <Image
+                <div className={styles.logoDiv}></div>
+ <Image
                   src="/images/snacks.png"
                   width={190}
                   height={170}
                   alt="logo"
                   className={styles.logo}
                 />
+
+                
+               
               </li>
             </Link>
 
