@@ -25,6 +25,7 @@ const AddProduct = ({ setClose }) => {
 
   const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
+    setExtra(null)
   };
 
   const handleCreate = async () => {
@@ -124,7 +125,7 @@ const AddProduct = ({ setClose }) => {
               Add Extra
             </button>
           </div>
-          <div className={styles.extraItems}>
+          <div className={styles.extraItemsAdd}>
             {extraOptions.map((option, index) => (
               <span key={index} className={styles.extraItem}>
                 {option.text}: ${option.price}  
