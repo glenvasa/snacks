@@ -25,7 +25,7 @@ const AddProduct = ({ setClose }) => {
 
   const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
-    setExtra(null)
+    // setExtra(null)
   };
 
   const handleCreate = async () => {
