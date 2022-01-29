@@ -1,8 +1,10 @@
 .container {
-    background-color: #05291a;
+    /* background-color: #05291a; */
+    background-image: linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5), rgb(168, 40, 40));
     height: calc(100vh - 100px);
     overflow: hidden;
-    
+    width: 100%;
+    z-index: 1000
 }
 
 .arrowContainer {
@@ -28,6 +30,7 @@
     position: relative;
     width: 100vw;
     height: 80%;
+
 }
 
 
