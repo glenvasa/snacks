@@ -1,6 +1,7 @@
 .container {
   padding: 50px;
   /* display: flex; */
+  margin-top: 100px;
 }
 
 .left {
