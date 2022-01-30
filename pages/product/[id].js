@@ -50,7 +50,7 @@ const handleAddToCart = () => {
     setTotalPrice(basePrice + extrasCost);
   }, [basePrice, extrasCost]);
 
-  console.log(size);
+  // console.log(size);
   
 
   return (
