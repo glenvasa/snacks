@@ -16,6 +16,7 @@
   width: 100px;
   height: 100px;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .table {
@@ -26,7 +27,7 @@
 
 .name {
   font-weight: 500;
-  color: #d1411e;
+  color: rgb(168, 40, 40);
   font-size: 18px;
 }
 
@@ -34,8 +35,14 @@
   display: flex;
   flex-direction: column;
   align-items:flex-start;
+
+  padding-top: 30%;
+}
+
+.title {
+  color: rgb(223, 204, 204);
+  text-align: center;
   
-  padding-top: 22%;
 }
 
 .total {
@@ -48,7 +55,8 @@
   max-height: 300px;
   background-color: #333;
   padding: 50px;
-  padding-top: 10px;
+  padding-top: 0px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -67,12 +75,26 @@
   cursor: pointer;
   margin-top: 20px;
   border-radius: 5px;
+  transition: all .2s ease-in-out;
 }
+.button:hover{
+  color: #EFEFEF;
+  background-color: #d1411e
+}
+
 
 .clearButton {
   margin-top: 10px;
   margin-bottom: -100px;
-  background-color: #18cc81;
+  background-color: #d1411e;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.clearButton:hover {
+  color: #d1411e;
+  background-color: white
 }
 
 @media screen and (max-width: 480px) {
@@ -98,7 +120,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+
   }
 
   .imgContainer {
@@ -106,28 +129,52 @@
     height: 35vw;
   }
 
-  .name,
-  .total {
+  .extrasContainer {
+    margin-top: -30px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .extras:first-child::before {
+    content: "Extras: ";
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .name
+   {
     font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .total {
+    font-size: 18px;
   }
 
   .extras,
   .price,
   .quantity {
-    font-size: 22px;
+    font-size: 18px;
+  }
+
+  .price {
+    margin-bottom: 5px;
   }
 
   .price::before {
     content: "Price: ";
     font-weight: 500;
+    font-size: 18px;
   }
   .quantity::before {
     content: "Quantity: ";
     font-weight: 500;
+    font-size: 18px;
   }
   .total::before {
     content: "Total: ";
     font-weight: 500;
+    font-size: 20px;
   }
 
   .wrapper {
@@ -149,4 +196,14 @@
   color: teal;
   font-weight: bold;
   border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.payButton:hover{
+  color: white;
+  background-color: teal;
+}
+
+.totalText {
+  font-size: 18px;
 }
