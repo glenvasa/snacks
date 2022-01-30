@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .titleContainer {
@@ -21,6 +22,7 @@
   width: 70%;
   text-align: center;
   font-weight: bold;
+  
 }
 
 .wrapper {
@@ -37,9 +39,12 @@
 }
 
 .title {
+  /* display: none; */
   font-family:'Bebas Neue';
   font-size: 35px;
   font-weight: lighter;
+  color: black;
+  text-shadow: 1px 1px rgb(168, 40, 40);
 }
 
 .search {
@@ -67,12 +72,16 @@ input#search {
 }
 
 
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 376px) {
   .logo {
     display: block;
   }
   .title {
+    display: block;
     text-align: center;
+    margin-top: -200px;
+    margin-bottom: 250px;
   }
 
   .desc {
