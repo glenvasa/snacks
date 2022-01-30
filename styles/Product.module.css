@@ -24,6 +24,10 @@
     height: 80%;
 }
 
+.title {
+  color: rgb(168, 40, 40);
+}
+
 .price {
     color: #d1411e;
     font-size: 24px;
@@ -117,18 +121,26 @@
       height: auto;
       text-align: center;
       flex-direction: column;
-      margin-top: 40px;
+      margin-top: 150px;
     }
   
     .imgContainer {
-      width: 70vw;
-      height: 70vw;
+      width: 65vw;
+      height: 65vw;
+      margin-bottom: -130px;
     }
   
     .title {
-      margin: 5px;
+        font-size: 24px;
     }
   
+    .price {
+      border: 2px dashed black;
+      padding: 5px 10px;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
     .sizes {
       width: 100%;
       padding: 0px 20px;
@@ -140,12 +152,12 @@
   
     .option {
       margin: 10px;
-      font-size: 18px;
+      font-size: 16px;
     }
   
     .checkbox {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
     }
 
     .button {
