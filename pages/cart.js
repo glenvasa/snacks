@@ -109,7 +109,7 @@ const Cart = () => {
     );
   };
 
-  console.log(cart)
+  // console.log(cart)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
