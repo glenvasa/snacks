@@ -168,8 +168,6 @@ align-items: center; */
   border-color: #1824cc;
 }
 
-@media screen and (max-width: 480px) {
-  .container {
-    /* flex-direction: column; */
-  }
+@media screen and (max-width: 376px) {
+ 
 }
