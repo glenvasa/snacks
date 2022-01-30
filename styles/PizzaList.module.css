@@ -43,14 +43,28 @@
 }
 
 .search {
+  
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-bottom: 2rem;
   cursor: pointer;
-  width: 15rem
+  width: 15rem;
 }
 
+input#search {
+  height: 50px !important
+}
+
+
+.search_icon {
+  position: absolute;
+  top: 20px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+}
 
 
 @media screen and (max-width: 480px) {
