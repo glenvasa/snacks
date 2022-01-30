@@ -7,7 +7,7 @@
   padding: 0px 50px;
   background-color: rgb(168, 40, 40);
    /* #18cc81; */
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
 }
@@ -151,14 +151,26 @@
   transform: scale(1.02);
 }
 
+.pizza_logo {
+  display: none;
+}
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 376px) {
+
+  .container {
+    position: fixed;
+  }
+
   .listItem,
   .item_cart,
   .item_logo {
     display: none;
   }
 
+.pizza_logo {
+  display: block;
+  margin-left: -30px;
+}  
  
 
   .hamburgerMenuContainer {
@@ -170,16 +182,17 @@
 
   .hamMenu {
       position: fixed;
-      /* position: absolute;
-      top: 50%;
-      right: .1%; */
+
+       /* position: absolute; */
+      top: 13%;
+      
       list-style: none;
-      background-color:  #18cc81;
+      background-color:  rgb(168, 40, 40);
       padding-bottom: 5px;
       display: flex;
       width: 100%;
       margin-top: -1px;
-      margin-bottom: 0;
+      
       justify-content: space-evenly;
       text-align: center;
       padding-left: 0;
@@ -193,6 +206,8 @@
       cursor: pointer;
       transition: all .2s ease-in-out;
     z-index: 999;
+    margin-left: 10px;
+    
     }
 
  .hamMenuItem:hover{
@@ -204,9 +219,10 @@
  }
 
   .logo_li {
-    width: 80%;
+    width: 100%;
+    margin-top: -5px;
     
-    margin-left: 50px;
+    margin-left: 30px;
     margin-right: 0; 
   }
 }
