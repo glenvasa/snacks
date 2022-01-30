@@ -40,18 +40,24 @@
     color: #777;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 376px) {
     .container {
-      width: 100%;
+      width: 90%;
+      margin-top: -30px;
+      margin-bottom: 30px;
     }
   
     .title {
-      font-size: 30px;
+      font-size: 22px;
       text-align: center;
     }
   
-    .price,
+    
     .desc {
-      font-size: 24px;
+      font-size: 16px;
+      margin-top: -10px;
+      margin-bottom: 20x;
     }
+
+    
   }
