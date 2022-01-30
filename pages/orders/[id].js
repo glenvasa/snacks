@@ -17,7 +17,7 @@ const Order = ({ order }) => {
 
   // const extras = order.
 
-  console.log(order);
+  // console.log(order);
   return (
     <div className={styles.container}>
       <div className={styles.left}>
