@@ -34,12 +34,14 @@ const PizzaList = ({ pizzaList }) => {
         </p>{" "}
       </div>
       <div className={styles.search}>
-        <label htmlFor="search">Search pizza name or description</label>
+        <label htmlFor="search">Search for pizzas!</label>
         <input
           type="search"
           id="search"
+          // placeholder="Search for Pizzas..."
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
+        {/* <Image className={styles.search_icon} src='/images/search_icon.png' width={16} height={16} alt='search-icon'/> */}
       </div>
 
       <div className={styles.wrapper}>
