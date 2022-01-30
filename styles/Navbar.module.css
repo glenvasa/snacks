@@ -214,15 +214,13 @@
     color: white
  }
 
- .container {
-     
- }
+ 
 
   .logo_li {
     width: 100%;
     margin-top: -5px;
     
-    margin-left: 30px;
+    margin-left: 20px;
     margin-right: 0; 
   }
 }
