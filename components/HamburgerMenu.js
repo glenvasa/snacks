@@ -19,7 +19,7 @@ const HamburgerMenu = () => {
           <li className={styles.hamMenuItem}>Cart</li>
         </Link>
         <Link href="/track" passHref>
-          <li className={styles.hamMenuItem}>Order Track</li>
+          <li className={styles.hamMenuItem}>Track</li>
         </Link>
         <Link href={"/#motto"} passHref>
           <li className={styles.hamMenuItem}>Contact</li>
