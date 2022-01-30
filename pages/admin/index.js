@@ -41,28 +41,22 @@ const Admin = ({ orders }) => {
   };
 
   const handleDeleteOrder = async (id) => {
-   const response = confirm("Are you sure you want to delete this order?")
-     
+    const response = confirm("Are you sure you want to delete this order?");
+
     if (response === true) {
-try {
-        await axios.delete(`/api/orders/` + id) 
-        alert("Order deleted")
+      try {
+        await axios.delete(`/api/orders/` + id);
+        alert("Order deleted");
       } catch (err) {
-        console.log(err.message || "Something went wrong")
+        console.log(err.message || "Something went wrong");
       }
-
-
     }
-      
-   
-  }
-
+  };
 
   const logout = () => {
     localStorage.clear();
     router.push("/");
   };
-
 
   // useEffect(()=> {
 
@@ -97,14 +91,11 @@ try {
             <>
               <tbody key={order._id}>
                 <tr className={styles.trTitle}>
-                  {/* <td>
-                  {order._id.slice(order._id.length - 5, order._id.length)}
-                </td> */}
                   <td>{order.customer}</td>
                   <td>
                     <div className={styles.address}>
                       <span className={styles.address}>
-                        {order.address[0]}{" "}
+                        {order.address[0]}{" "}<br/>
                       </span>
                       <span
                         className={styles.address}
@@ -115,20 +106,24 @@ try {
                   <td className={styles.products}>
                     {order.products.map((product) => (
                       <div key={product.index}>
-                        <span>{`• ${product.quantity} ${product.size} ${product.title}${
-                          product.quantity > 1 ? `s` : ""
-                        } ${product.extrasArray.length === 0 ? '' : 'with'} `}</span>
+                        <span>{`• ${product.quantity} ${product.size} ${
+                          product.title
+                        }${product.quantity > 1 ? `s` : ""} ${
+                          product.extrasArray.length === 0 ? "" : "with"
+                        } `}</span>
 
-                        {product.extrasArray.length !== 0 ? product.extrasArray.map((extra, index) => (
-                          <span key={extra.index}>
-                            {index === 0
-                              ? null
-                              : index === product.extrasArray.length - 1
-                              ? ` and `
-                              : `, `}
-                            {extra.text}
-                          </span>
-                        )) : null}
+                        {product.extrasArray.length !== 0
+                          ? product.extrasArray.map((extra, index) => (
+                              <span key={extra.index}>
+                                {index === 0
+                                  ? null
+                                  : index === product.extrasArray.length - 1
+                                  ? ` and `
+                                  : `, `}
+                                {extra.text}
+                              </span>
+                            ))
+                          : null}
                       </div>
                     ))}
                   </td>
