@@ -27,14 +27,14 @@ const PizzaList = ({ pizzaList }) => {
       </div> */}
       <div className={styles.titleContainer}>
         {" "}
-        <h1 className={styles.title}>THE BEST PIZZA IN TOWN</h1>
+        <h1 className={styles.title}>THE BEST PIZZA IN TOWN!</h1>
         <p className={styles.desc}>
           Try one of our award-winning custom classic pizzas with any one of
           your favorite toppings!
         </p>{" "}
       </div>
       <div className={styles.search}>
-        <label htmlFor="search">Search for pizzas!</label>
+        <label htmlFor="search">Search for pizzas</label>
         <input
           type="search"
           id="search"
