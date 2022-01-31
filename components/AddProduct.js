@@ -3,13 +3,14 @@ import styles from "../styles/Add.module.css";
 import axios from "axios";
 
 
-const AddProduct = ({ setClose }) => {
+const AddProduct = ({ setClose, pizzaList, setPizzaList }) => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [prices, setPrices] = useState([]);
   const [extraOptions, setExtraOptions] = useState([]);
   const [extra, setExtra] = useState(null);
+  const [addMessage, setAddMessage] = useState(false);
 
   const hostUrl =  process.env.URL
 
@@ -26,6 +27,13 @@ const AddProduct = ({ setClose }) => {
   const handleExtra = () => {
     setExtraOptions((prev) => [...prev, extra]);
     // setExtra(null)
+  };
+
+  const addMessageHandler = () => {
+    setTimeout(() => {
+      setAddMessage(false);
+      setClose(true);
+    }, 1300);
   };
 
   const handleCreate = async () => {
@@ -47,8 +55,11 @@ const AddProduct = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post(`/api/products`, newProduct);
-      setClose(true);
+      const res = await axios.post(`/api/products`, newProduct);
+      
+      setAddMessage(true)
+      addMessageHandler()
+      // setPizzaList([res.data, ...pizzaList])
     } catch (err) {
       console.log(err);
     }
@@ -136,6 +147,9 @@ const AddProduct = ({ setClose }) => {
         <button className={styles.addButton} onClick={handleCreate}>
           Add Pizza
         </button>
+        {addMessage && (
+          <span className={styles.editMessage}>New pizza added</span>
+        )}
       </div>
     </div>
   );
