@@ -27,18 +27,18 @@ const PizzaList = ({ pizzaList }) => {
       </div> */}
       <div className={styles.titleContainer}>
         {" "}
-        <h1 className={styles.title}>THE BEST PIZZA IN TOWN!</h1>
+        <h1 className={styles.title}>BEST PIZZA IN TOWN</h1>
         <p className={styles.desc}>
           Try one of our award-winning custom classic pizzas with any one of
           your favorite toppings!
         </p>{" "}
       </div>
-      <div className={styles.search}>
-        <label htmlFor="search">Search</label>
+      <div className={styles.search}> 
+         {/* <label htmlFor="search">Search</label> */}
         <input
           type="search"
           id="search"
-          // placeholder="Search for Pizzas..."
+          placeholder="Search for Pizzas..."
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         {/* <Image className={styles.search_icon} src='/images/search_icon.png' width={16} height={16} alt='search-icon'/> */}
