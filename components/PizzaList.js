@@ -34,7 +34,7 @@ const PizzaList = ({ pizzaList }) => {
         </p>{" "}
       </div>
       <div className={styles.search}>
-        <label htmlFor="search">Search for pizzas</label>
+        <label htmlFor="search">Search</label>
         <input
           type="search"
           id="search"
