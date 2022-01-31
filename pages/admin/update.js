@@ -25,7 +25,7 @@ const AdminUpdate = ({ products }) => {
   const url = process.env.URL;
 
   const handleDelete = async (id) => {
-    const response = confirm("Are you sure you want to delete this order?");
+    const response = confirm("Are you sure you want to delete this pizza?");
 
     if (response === true) {
       try {
@@ -66,8 +66,8 @@ const AdminUpdate = ({ products }) => {
           <tbody>
             <tr className={styles.trTitle}>
               <th>Image</th>
-              <th>Id</th>
-              <th>Title</th>
+              <th>Name</th>
+              <th>Description</th>
               <th>Prices (small, medium, large)</th>
               <th>Extra Options</th>
               <th>Action</th>
@@ -75,7 +75,7 @@ const AdminUpdate = ({ products }) => {
           </tbody>
           {pizzaList.map((product) => (
             <tbody key={product._id}>
-              <tr className={styles.trTitle}>
+              <tr className={styles.updateTrTitle}>
                 <td>
                   <Image
                     src={product.img}
@@ -85,8 +85,8 @@ const AdminUpdate = ({ products }) => {
                     alt=""
                   />
                 </td>
-                <td>{product._id}</td>
                 <td>{product.title}</td>
+                <td>{product.desc}</td>
                 <td className={styles.prices}>
                   {product.prices.map((price, index) => (
                     <span key={price.index}>
@@ -120,9 +120,9 @@ const AdminUpdate = ({ products }) => {
           ))}
         </table>
       </div>
-      {!close && <AddProduct setClose={setClose} />}
+      {!close && <AddProduct setClose={setClose} pizzaList={pizzaList} setPizzaList={setPizzaList}  />}
       {!editClose && (
-        <EditProduct setEditClose={setEditClose} product={editProduct} />
+        <EditProduct setEditClose={setEditClose} product={editProduct} pizzaList={pizzaList} setPizzaList={setPizzaList} />
       )}
     </div>
   );
@@ -132,17 +132,7 @@ export default AdminUpdate;
 
 export const getServerSideProps = async (ctx) => {
   const url = process.env.URL;
-  // const myCookie = ctx.req?.cookies || "";
-
-  // if (myCookie.token !== process.env.TOKEN) {
-  //   return {
-  //     redirect: {
-  //       destination: "/admin/login",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
-
+  
   const productRes = await axios.get(`${url}/api/products`);
 
   return {
