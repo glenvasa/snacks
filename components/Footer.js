@@ -5,7 +5,9 @@ const Footer = () => {
     return (
         <div className={styles.container} id="footer">
             <div className={styles.item}>
-                <Image src="/images/bg.png" layout='fill' alt='' objectFit='cover'></Image>
+                <Image src="/images/pizza-footer.jpg" layout='fill' alt='' objectFit='cover'></Image>
+                {/* Photo by <a href="https://unsplash.com/@shaianramesht?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">shaian ramesht</a> on <a href="https://unsplash.com/s/photos/pizza?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */}
+  
             </div>
             <div className={styles.item}>
               <div className={styles.card}>
