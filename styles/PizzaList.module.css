@@ -40,7 +40,8 @@
 
 .title {
   /* display: none; */
-  font-family:'Bebas Neue';
+  font-family: inherit;
+  font-weight:900;
   font-size: 35px;
   font-weight: lighter;
   color: black;
@@ -48,7 +49,8 @@
 }
 
 .search {
-  
+  justify-content: center;
+  align-items: center;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -58,8 +60,16 @@
   width: 10rem;
 }
 
-input#search {
-  height: 50px !important
+.search > input {
+  
+     padding: 5px 5px 5px 10px;
+     border-radius: 10px;
+     background-color: whitesmoke;
+     color: rgb(168, 40, 40);
+     margin-bottom: 15%;
+     font-family: inherit;
+     /* font-weight: bold; */
+     font-size: 13px;
 }
 
 
