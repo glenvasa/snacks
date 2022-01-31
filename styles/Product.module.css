@@ -58,6 +58,11 @@
     height: 50px;
 }
 
+.highlight {
+  background-color: red;
+  border-radius: 50%;
+}
+
 .number {
     position: absolute;
     top: -5px;
@@ -146,6 +151,10 @@
 .cartButton:hover {
 background-color: #d1411e;
 color: white
+}
+
+.cartButton:disabled {
+  display: none;
 }
 
 .menuButton {
