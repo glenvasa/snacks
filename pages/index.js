@@ -16,7 +16,7 @@ export default function Home({pizzaList, admin}) {
   
     (<div className={styles.container}>
       <Head>
-        <title>SNACKS! - Food Ordering App</title>
+        <title>SNACKS PIZZA - Order Online</title>
         <meta
           name="description"
           content="Customize and order your favorite snacks!"
