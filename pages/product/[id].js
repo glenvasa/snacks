@@ -2,34 +2,35 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../../styles/Product.module.css";
 import Image from "next/image";
+import Link from 'next/link'
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct} from '../../redux/cartSlice'
-
+import { addProduct } from "../../redux/cartSlice";
 
 const Product = ({ pizza }) => {
   const [basePrice, setBasePrice] = useState(pizza.prices[0]);
   const [extrasCost, setExtrasCost] = useState(0);
   const [extrasArray, setExtrasArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(pizza.prices[0]);
-  const [quantity, setQuantity] = useState(1)
-  const [addToCart, setAddToCart] = useState(false)
-  const [size, setSize] = useState('Small')
+  const [quantity, setQuantity] = useState(1);
+  const [addToCart, setAddToCart] = useState(false);
+  const [size, setSize] = useState("Small");
 
-  const url = process.env.URL
+  const url = process.env.URL;
 
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-const cart = useSelector((state) => state.cart);
-// console.log(cart)
+  const cart = useSelector((state) => state.cart);
+  // console.log(cart)
 
-const handleAddToCart = () => {
-    dispatch(addProduct({...pizza, extrasArray, totalPrice, quantity, size}))
-    setAddToCart(true)
+  const handleAddToCart = () => {
+    dispatch(addProduct({ ...pizza, extrasArray, totalPrice, quantity, size }));
+    setAddToCart(true);
     setTimeout(() => {
-      setAddToCart(false)
-    }, 1000)
-  }
+      setAddToCart(false);
+    }, 1000);
+  };
 
+  //useEffect cleanup fn to prevent memory leak
 
   const handleExtraOptions = (e, option) => {
     const checked = e.target.checked;
@@ -51,7 +52,6 @@ const handleAddToCart = () => {
   }, [basePrice, extrasCost]);
 
   // console.log(size);
-  
 
   return (
     <div className={styles.container}>
@@ -73,27 +73,33 @@ const handleAddToCart = () => {
         <div className={styles.sizes}>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[0], setSize('Small'))}
+            onClick={() => setBasePrice(pizza.prices[0], setSize("Small"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Small</span>
-           <span className={styles.basePrice}>${pizza.prices[0].toFixed(2)}</span> 
+            <span className={styles.basePrice}>
+              ${pizza.prices[0].toFixed(2)}
+            </span>
           </div>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[1], setSize('Medium'))}
+            onClick={() => setBasePrice(pizza.prices[1], setSize("Medium"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Medium</span>
-            <span className={styles.basePrice}>${pizza.prices[1].toFixed(2)}</span> 
+            <span className={styles.basePrice}>
+              ${pizza.prices[1].toFixed(2)}
+            </span>
           </div>
           <div
             className={styles.size}
-            onClick={() => setBasePrice(pizza.prices[2], setSize('Large'))}
+            onClick={() => setBasePrice(pizza.prices[2], setSize("Large"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
             <span className={styles.number}>Large</span>
-            <span className={styles.basePrice}>${pizza.prices[2].toFixed(2)}</span> 
+            <span className={styles.basePrice}>
+              ${pizza.prices[2].toFixed(2)}
+            </span>
           </div>
         </div>
         <h3 className={styles.additional}>Any extras?</h3>
@@ -113,25 +119,43 @@ const handleAddToCart = () => {
             </div>
           ))}
         </div>
-        <div className={styles.add}>
-          <input type="number" defaultValue={1} className={styles.quantity} 
-          onChange={(e) => {setQuantity(e.target.value)}} 
-          />
-          <button className={styles.button} onClick={handleAddToCart}>Add to Cart</button>
+        <div className={styles.buttonsContainer}>
+          <div className={styles.add}>
+            <input
+              type="number"
+              defaultValue={1}
+              className={styles.quantity}
+              onChange={(e) => {
+                setQuantity(e.target.value);
+              }}
+            />
+            <button className={styles.button} onClick={handleAddToCart}>
+              Add to Cart
+            </button>
+          </div>
+          <div className={styles.altNavButtons}>
+            <Link href='/#pizza-list' passHref>
+              <button className={styles.menuButton}>Menu</button>
+            </Link>
+
+
+            <Link href='/cart' passHref>
+            <button className={styles.cartButton}>Cart</button>
+            </Link>
+            
+              
+          </div>
         </div>
-        {addToCart && (
-          <div className={styles.addMessage}>Added to Cart</div>
-        )}
+
+        {addToCart && <div className={styles.addMessage}>Added to Cart</div>}
       </div>
     </div>
   );
 };
 
 export async function getServerSideProps({ params }) {
-  const url = process.env.URL
-  const res = await axios.get(
-    `${url}/api/products/${params.id}`
-  );
+  const url = process.env.URL;
+  const res = await axios.get(`${url}/api/products/${params.id}`);
 
   return {
     props: {
