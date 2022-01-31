@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { parse } from "cookie";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -13,6 +14,11 @@ const cartSlice = createSlice({
       state.quantity += parseInt(action.payload.quantity);
       state.total += action.payload.totalPrice * action.payload.quantity;
     },
+    removeProduct: (state, action) => {
+      state.products.splice(action.payload.index, 1)
+      state.quantity -= parseInt(action.payload.quantity)
+      state.total -= action.payload.totalPrice * parseInt(action.payload.quantity)
+    },
     reset: (state) => {
       state.products = [];
       state.quantity = 0;
@@ -21,5 +27,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, reset } = cartSlice.actions;
+export const { addProduct, removeProduct, reset } = cartSlice.actions;
 export default cartSlice.reducer;
