@@ -62,7 +62,7 @@ const AdminUpdate = ({ products }) => {
           </button>
           <AddButton setClose={setClose} />
         </div>
-        <table className={styles.table}>
+        <table className={`${styles.table} ${styles.updateTable}`}>
           <tbody>
             <tr className={styles.trTitle}>
               <th>Image</th>
@@ -88,8 +88,9 @@ const AdminUpdate = ({ products }) => {
                 <td>{product._id}</td>
                 <td>{product.title}</td>
                 <td className={styles.prices}>
-                  {product.prices.map((price) => (
-                    <span key={price.index}>${price.toFixed(2)} </span>
+                  {product.prices.map((price, index) => (
+                    <span key={price.index}>
+                      {`$${price.toFixed(2)}${index === 0 ? ',' : index === 1 ? ' and' : ''} `}</span>
                   ))}
                 </td>
                 <td className={styles.extras}>
