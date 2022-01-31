@@ -8,6 +8,7 @@
   background-color: rgb(168, 40, 40);
    /* #18cc81; */
   position: fixed;
+  border-bottom: 2px solid black;
   top: 0;
   z-index: 999;
 }
