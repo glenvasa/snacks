@@ -104,10 +104,67 @@
     margin-left: 10px;
     background-color: #d1411e;
     color: white;
-    border: none;
+    border: .5px solid black;
     font-weight: 500;
     cursor: pointer;
     border-radius: 5px;
+    transition: all .2s ease-in-out;
+    
+}
+
+.button:hover {
+  background-color: white;
+  color: red
+}
+
+.altNavButtons{
+  margin: 0;
+  margin-top: 10px;
+  
+
+}
+
+.cartButton,
+.menuButton {
+  margin-left: -50px
+}
+
+.cartButton {
+  height: 30px;
+  margin-left: 10px;
+  background-color: white;
+  color: #d1411e;
+  border: .5px solid black;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 80px;
+  transition: all .2s ease-in-out;
+  
+}
+
+.cartButton:hover {
+background-color: #d1411e;
+color: white
+}
+
+.menuButton {
+  height: 30px;
+  margin-left: 10px;
+  background-color: white;
+  color: #d1411e;
+  border: .5px solid black;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 80px;
+  transition: all .2s ease-in-out;
+  
+}
+
+.menuButton:hover {
+background-color: #d1411e;
+color: white
 }
 
 .addMessage {
