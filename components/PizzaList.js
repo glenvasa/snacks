@@ -27,9 +27,9 @@ const PizzaList = ({ pizzaList }) => {
       </div> */}
       <div className={styles.titleContainer}>
         {" "}
-        <h1 className={styles.title}>BEST PIZZA IN TOWN</h1>
+        <h1 className={styles.title}>2021 BEST PIZZA IN BOSTON</h1>
         <p className={styles.desc}>
-          Try one of our award-winning custom classic pizzas with any one of
+          Try our award-winning custom classic pizzas with
           your favorite toppings!
         </p>{" "}
       </div>
