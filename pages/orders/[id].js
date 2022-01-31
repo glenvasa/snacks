@@ -18,6 +18,8 @@ const Order = ({ order }) => {
   // const extras = order.
 
   // console.log(order);
+  const addressHeight = (order.products.length * 20) + 5 + 'px'
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -39,12 +41,10 @@ const Order = ({ order }) => {
                   <span className={styles.customer}>{order.customer}</span>
                 </td>
 
-                <td>
-                  <div className={styles.address}>
-                    <span className={styles.address}>{order.address[0]} </span>
-                    <span
-                      className={styles.address}
-                    >{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
+                <td >
+                  <div className={styles.address} style={{height: addressHeight}}>
+                    <span>{order.address[0]} </span>
+                    <span>{`${order.address[1]}, ${order.address[2]}, ${order.address[3]}`}</span>
                   </div>
                 </td>
                 <td>
