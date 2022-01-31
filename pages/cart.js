@@ -9,7 +9,7 @@ import {
 } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { reset } from "../redux/cartSlice";
+import { removeProduct, reset } from "../redux/cartSlice";
 import OrderDetail from "../components/OrderDetail";
 
 const Cart = () => {
@@ -46,6 +46,11 @@ const Cart = () => {
       console.log(err.message);
     }
   };
+
+  const handleRemoveFromCart = ({quantity, totalPrice}, index) => {
+    dispatch(removeProduct({quantity, totalPrice, index}));    
+  }
+
 
   // Custom component to wrap the PayPalButtons and handle currency changes
   const ButtonWrapper = ({ currency, showSpinner }) => {
@@ -109,7 +114,8 @@ const Cart = () => {
     );
   };
 
-  // console.log(cart)
+  
+  console.log(cart)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -125,8 +131,8 @@ const Cart = () => {
             </tr>
           </tbody>
           <tbody>
-            {cart.products.map((product) => (
-              <tr className={styles.tr} key={product._id}>
+            {cart.products.map((product, i) => (
+              <tr className={styles.tr} key={i}>
                 <td>
                   <div className={styles.imgContainer}>
                     <Image
@@ -161,6 +167,12 @@ const Cart = () => {
                   <span className={styles.total}>
                     ${(product.totalPrice * product.quantity).toFixed(2)}
                   </span>
+                  
+                </td>
+                <td>
+                  <button className={styles.deleteButton} onClick={() => handleRemoveFromCart(product, i)}>
+                    <Image src='/images/trash.png' width={20} height={20} alt='delete-pizza'/>
+                  </button>
                 </td>
               </tr>
             ))}
@@ -174,7 +186,7 @@ const Cart = () => {
             <b className={styles.totalTextTitle}>Subtotal:</b>${cart.total.toFixed(2)}
           </div>
           <div className={styles.totalText}>
-            <b className={styles.totalTextTitle}>Sales Tax:</b>${tax}
+            <b className={styles.totalTextTitle}>Sales Tax:</b>${tax.toFixed(2)}
           </div>
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Order Total:</b>${grandTotal.toFixed(2)}
