@@ -72,7 +72,7 @@ const Product = ({ pizza }) => {
         <h3 className={styles.choose}>Choose the size</h3>
         <div className={styles.sizes}>
           <div
-            className={styles.size}
+            className={`${styles.size} ${size === 'Small' ? `${styles.highlight}` : ""}`}
             onClick={() => setBasePrice(pizza.prices[0], setSize("Small"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
@@ -82,7 +82,7 @@ const Product = ({ pizza }) => {
             </span>
           </div>
           <div
-            className={styles.size}
+            className={`${styles.size} ${size === 'Medium' ? `${styles.highlight}` : ""}`}
             onClick={() => setBasePrice(pizza.prices[1], setSize("Medium"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
@@ -92,7 +92,7 @@ const Product = ({ pizza }) => {
             </span>
           </div>
           <div
-            className={styles.size}
+            className={`${styles.size} ${size === 'Large' ? `${styles.highlight}` : ""}`}
             onClick={() => setBasePrice(pizza.prices[2], setSize("Large"))}
           >
             <Image src="/images/size.png" alt="size" layout="fill" />
@@ -132,19 +132,20 @@ const Product = ({ pizza }) => {
             <button className={styles.button} onClick={handleAddToCart}>
               Add to Cart
             </button>
-          </div>
-          <div className={styles.altNavButtons}>
+            {/* <div className={styles.altNavButtons}> */}
             <Link href='/#pizza-list' passHref>
               <button className={styles.menuButton}>Menu</button>
             </Link>
 
 
             <Link href='/cart' passHref>
-            <button className={styles.cartButton}>Cart</button>
+            <button className={styles.cartButton} disabled={cart.quantity < 1 ? true : false}>Cart</button>
             </Link>
             
               
+          {/* </div> */}
           </div>
+          
         </div>
 
         {addToCart && <div className={styles.addMessage}>Added to Cart</div>}
