@@ -109,6 +109,20 @@ cursor: pointer;
 
 }
 
+.emptyCart {
+  background-color: #d1411e;
+  cursor: pointer;
+  color: white;
+  border-radius: 2px;
+  transition: all .2s ease-in-out;
+}
+
+.emptyCart:hover{
+  background-color: white;
+  color: #d1411e;
+}
+
+
 @media screen and (max-width: 480px) {
   .container {
     flex-direction: column;
