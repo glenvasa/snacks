@@ -24,8 +24,10 @@
   width: 100%;
   border-spacing: 20px;
   text-align: left;
- 
-  
+}
+
+.trTitle > td:nth-child(3) {
+  width: 250px
 }
 
 .updateTable {
