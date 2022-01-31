@@ -8,12 +8,13 @@
   /* flex: 2; */
 }
 
+/* td > .address {
+  height: 25px;
+} */
+
 .address {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  
-  /* margin-top: -10% !important; */
 }
 
 .table {
