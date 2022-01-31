@@ -11,6 +11,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { removeProduct, reset } from "../redux/cartSlice";
 import OrderDetail from "../components/OrderDetail";
+import Link from "next/link";
 
 const Cart = () => {
   const [open, setOpen] = useState(false);
@@ -115,7 +116,7 @@ const Cart = () => {
   };
 
   
-  console.log(cart)
+  // console.log(cart)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -131,6 +132,15 @@ const Cart = () => {
             </tr>
           </tbody>
           <tbody>
+            {cart.quantity < 1 && (
+              <div>
+                 <h3>Your Cart is Empty!</h3>
+                 <Link href='/#pizza-list' >
+                   <button className={styles.emptyCart}>Find your favorite pizza   </button>
+                 </Link>
+              </div>
+             
+            )}
             {cart.products.map((product, i) => (
               <tr className={styles.tr} key={i}>
                 <td>
