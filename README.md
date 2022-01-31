@@ -11,8 +11,8 @@
 <img src="public/images/screenshots/product_page.png">
 <img src="public/images/screenshots/paypal_order.png">
 <img src="public/images/screenshots/order_tracker.png">
-<img src="public/images/screenshots/admin_orders.png">
-<img src="public/images/screenshots/admin_products.png">
+<img src="public/images/screenshots/admin_page_orders.png">
+<img src="public/images/screenshots/admin_page_update.png">
  
 ## Freelance Project
 - Customized for use by nutrition/healthy living direct sales representatives.
