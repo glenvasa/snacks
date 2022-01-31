@@ -8,6 +8,7 @@
 
 .item {
   width: 100%;
+  
 }
 
 .updateContainer {
@@ -23,7 +24,12 @@
   width: 100%;
   border-spacing: 20px;
   text-align: left;
+ 
   
+}
+
+.updateTable {
+  padding-left: 40px;
 }
 
 .button {
