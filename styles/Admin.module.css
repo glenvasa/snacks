@@ -26,7 +26,7 @@
   text-align: left;
 }
 
-.trTitle > td:nth-child(3) {
+.updateTrTitle > td:nth-child(3) {
   width: 250px
 }
 
