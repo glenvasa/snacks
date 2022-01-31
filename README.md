@@ -6,13 +6,14 @@
 - Admin dashboard to add/edit products and move orders through 4 stages (payment, processing, on-the-way, delivered.)
 
 ## Screenshots
-<img src="public/images/screenshots/home-page-new.png">  
-<img src="public/images/screenshots/pizzalist-new.png">
-<img src="public/images/screenshots/product-page-new.png">
-<img src="public/images/screenshots/paypal-order-new.png">
-<img src="public/images/screenshots/order-tracker-new.png">
-<img src="public/images/screenshots/admin-orders.png">
-<img src="public/images/screenshots/admin-products.png">
+<img src="public/images/screenshots/home_page.png">  
+<img src="public/images/screenshots/pizza_list.png">
+<img src="public/images/screenshots/product_page.png">
+<img src="public/images/screenshots/cart_page.png">
+<img src="public/images/screenshots/paypal_order.png">
+<img src="public/images/screenshots/order_tracker.png">
+<img src="public/images/screenshots/admin_page_orders.png">
+<img src="public/images/screenshots/admin_page_update.png">
  
 ## Freelance Project
 - Customized for use by nutrition/healthy living direct sales representatives.
