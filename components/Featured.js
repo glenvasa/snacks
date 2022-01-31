@@ -9,7 +9,6 @@ const Featured = () => {
     "/images/pizza-man.png",
     "/images/free-delivery.png",
     "/images/cool-pizza.png",
-    ,
   ];
 
   const handleArrow = (direction) => {
