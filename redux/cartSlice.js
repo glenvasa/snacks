@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { parse } from "cookie";
+
 
 const cartSlice = createSlice({
   name: "cart",
