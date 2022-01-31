@@ -9,6 +9,7 @@
 <img src="public/images/screenshots/home_page.png">  
 <img src="public/images/screenshots/pizza_list.png">
 <img src="public/images/screenshots/product_page.png">
+<img src="public/images/screenshots/cart_page.png">
 <img src="public/images/screenshots/paypal_order.png">
 <img src="public/images/screenshots/order_tracker.png">
 <img src="public/images/screenshots/admin_page_orders.png">
