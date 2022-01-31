@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Add.module.css";
 import axios from "axios";
 
-const EditProduct = ({ setEditClose, product }) => {
+const EditProduct = ({ product, setEditClose, pizzaList, setPizzaList }) => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState(product.title);
   const [desc, setDesc] = useState(product.desc);
@@ -36,6 +36,13 @@ const EditProduct = ({ setEditClose, product }) => {
 
     setExtraOptions(removedOptions);
   };
+  
+  const editMessageHandler = () => {
+    setTimeout(() => {
+      setEditMessage(false);
+      setEditClose(true);
+    }, 1300);
+  };
 
   const handleUpdate = async () => {
     const data = new FormData();
@@ -56,7 +63,12 @@ const EditProduct = ({ setEditClose, product }) => {
         ? { title, desc, prices, extraOptions, img: url }
         : { title, desc, prices, extraOptions };
       console.log(updatedProduct);
-      await axios.put(`/api/products/${product._id}`, updatedProduct);
+      const res = await axios.put(`/api/products/${product._id}`, updatedProduct);
+      console.log(pizzaList)
+      setPizzaList([
+        res.data,
+        ...pizzaList.filter((pizza) => pizza._id !== product._id),
+      ]);
       setEditMessage(true);
       editMessageHandler();
     } catch (err) {
@@ -64,12 +76,7 @@ const EditProduct = ({ setEditClose, product }) => {
     }
   };
 
-  const editMessageHandler = () => {
-    setTimeout(() => {
-      setEditMessage(false);
-      setEditClose(true);
-    }, 1300);
-  };
+  
   // console.log(product)
   // console.log(extraOptions);
 
