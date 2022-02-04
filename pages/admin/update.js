@@ -130,7 +130,7 @@ const AdminUpdate = ({ products }) => {
 
 export default AdminUpdate;
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async () => {
   const url = process.env.URL;
   
   const productRes = await axios.get(`${url}/api/products`);
