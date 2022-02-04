@@ -154,7 +154,7 @@ const Product = ({ pizza }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const url = process.env.URL;
   const res = await axios.get(`${url}/api/products/${params.id}`);
 
@@ -163,6 +163,19 @@ export async function getServerSideProps({ params }) {
       pizza: res.data,
     },
   };
+}
+
+export async function getStaticPaths() {
+  const url = process.env.URL;
+
+  const res = await axios.get(`${url}/api/products`);
+  const products = res.data.products
+  const slugs = products.map(product => product._id)
+
+  return {
+      paths: slugs.map(slug => ({params: {id: slug}})),
+      fallback: false
+  }
 }
 
 export default Product;
