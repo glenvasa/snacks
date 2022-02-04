@@ -1,20 +1,15 @@
-
-import axios from 'axios'
+import axios from "axios";
 import Head from "next/head";
 import Featured from "../components/Featured";
 import PizzaList from "../components/PizzaList";
 // import AddButton from '../components/AddButton';
 import styles from "../styles/Home.module.css";
 // import AddProduct from '../components/AddProduct';
-import {useRouter} from 'next/router';
+// import {useRouter} from 'next/router';
 
-export default function Home({pizzaList, admin}) {
-
-
+export default function Home({ pizzaList }) {
   return (
-   
-  
-    (<div className={styles.container}>
+    <div className={styles.container}>
       <Head>
         <title>SNACKS PIZZA - Order Online</title>
         <meta
@@ -25,30 +20,20 @@ export default function Home({pizzaList, admin}) {
       </Head>
       <Featured />
       {/* {admin && <AddButton setClose={setClose}/>} */}
-      <PizzaList pizzaList={pizzaList}/>
+      <PizzaList pizzaList={pizzaList} />
       {/* {!close && <AddProduct setClose={setClose} />} */}
-    </div>)
-    
+    </div>
   );
 }
 
-export async function getServerSideProps(ctx) {
-const url = process.env.URL
-  const myCookie = ctx.req?.cookies || ''
-  let admin = false
-  
+export async function getStaticProps() {
+  const url = process.env.URL;
 
-  if (myCookie.token === process.env.TOKEN) {
-    admin = true
-  }
-   
-   const res = await axios.get(`${url}/api/products`)
-  
+  const res = await axios.get(`${url}/api/products`);
 
   return {
     props: {
       pizzaList: res.data.products,
-      admin
-    }
-  }
+    },
+  };
 }
